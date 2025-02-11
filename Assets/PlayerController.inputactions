@@ -1,0 +1,95 @@
+{
+    "name": "PlayerController",
+    "maps": [
+        {
+            "name": "KM",
+            "id": "6200d07d-7a27-470f-8cb3-f2bba11a8124",
+            "actions": [
+                {
+                    "name": "Movement",
+                    "type": "Button",
+                    "id": "60204987-8768-4b20-a82a-f2825e88c92e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "83673a62-4295-4dc3-9115-525d2eb964d6",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7764d6b7-4582-43bb-bb5a-d155963eb3f9",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "20f7c2f9-04fa-4702-b8a3-1de974c67057",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2d6d23ad-5eac-4cfe-b429-c079544e66b5",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Controller",
+            "id": "d982a75d-cdf5-4e1e-a042-3ee6a0c6e24f",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "b3a1f983-1a6c-4826-8a2c-35aaac472d8d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "3ee51461-0ace-43d0-8b1e-dc2000c21a26",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
