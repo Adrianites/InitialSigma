@@ -4,29 +4,34 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-public class TopDownCarController : MonoBehaviour
+public class CarController : MonoBehaviour
 {
+    #region Variables
     [Header("Car Settings")]
     public float driftFactor = 0.30f;
     public float accelerationFactor = 30.0f;
     public float turnFactor = 3.5f;
-    public float maxSpeed = 75;
-
-    //Local variables
+    public float maxSpeed = 60;
     float accelerationInput = 0;
     float steeringInput = 0; 
-
     float rotationAngle = 0;
-
     float velocityVsUp = 0;
-
     Rigidbody2D rb;
 
+    [Header("Indepth Adjustments")]
+    public float IsTireScreechingValue = 4.0f;
+    public float ApplySteeringValue = 8.0f;
+
+    #endregion
+
+    #region Awake
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
     }
+    #endregion
 
+    #region Fixed Update
     void FixedUpdate()
     {
         ApplyEngineForce();
@@ -35,31 +40,28 @@ public class TopDownCarController : MonoBehaviour
 
         ApplySteering();
     }
+    #endregion
 
+    #region Apply Engine Force
     void ApplyEngineForce()
     {
-        //Calculate forward in terms of the direction of our velocity
         velocityVsUp = Vector2.Dot(transform.up, rb.velocity);
 
-        //Limit max speed in the forward direction
         if(velocityVsUp > maxSpeed && accelerationInput > 0)
         {
             return;
         }
 
-        //limit reverse speed by 50% (can change to suit our needs)
         if(velocityVsUp < -maxSpeed * 0.5f && accelerationInput < 0)
         {
             return;
         }
 
-        //Limit speed in any direction while accelerating
         if(rb.velocity.sqrMagnitude > maxSpeed * maxSpeed && accelerationInput > 0)
         {
             return;
         }
 
-        //applies drag if no acceleration input so this stops the car when the player lets go of the button
         if(accelerationInput == 0)
         {
             rb.drag = Mathf.Lerp(rb.drag, 3.0f, Time.deltaTime * 3);
@@ -69,27 +71,25 @@ public class TopDownCarController : MonoBehaviour
             rb.drag = 0;
         }
 
-        // create a force for the engine
-      Vector2 engineForceVector = transform.up * accelerationInput * accelerationFactor;
+        Vector2 engineForceVector = transform.up * accelerationInput * accelerationFactor;
 
-      //apply the force and pushes the car forward
-      rb.AddForce(engineForceVector, ForceMode2D.Force);
+        rb.AddForce(engineForceVector, ForceMode2D.Force);
     }
+    #endregion
 
+    #region Apply Steering
     void ApplySteering()
     {
-        //limit cars ability to turn while moving
-        float minSpeedBeforeTurningFactor = (rb.velocity.magnitude /8);
+        float minSpeedBeforeTurningFactor = (rb.velocity.magnitude / ApplySteeringValue);
         minSpeedBeforeTurningFactor = Mathf.Clamp01(minSpeedBeforeTurningFactor);
 
-        //update rotation angle based on input 
         rotationAngle -= steeringInput * turnFactor * minSpeedBeforeTurningFactor;
         
-        //apply steering by rotating the car object
         rb.MoveRotation(rotationAngle);
     }
+    #endregion
 
-    //side ways velocity for car
+    #region Kill Orthogonal Velocity
     void KillOrthogonalVelocity()
     {
         Vector2 fowardVelocity = transform.up * Vector2.Dot(rb.velocity, transform.up);
@@ -97,11 +97,41 @@ public class TopDownCarController : MonoBehaviour
 
         rb.velocity = fowardVelocity + rightVelocity * driftFactor;
     }
+    #endregion
 
+    #region Set Input Vector
     public void SetInputVector(Vector2 inputVector)
     {
         steeringInput = inputVector.x;
         accelerationInput = inputVector.y;
     }
+    #endregion
+    
+    #region Lateral Velocity
+    public float GetLateralVelocity()
+    {
+        return Vector2.Dot(transform.right, rb.velocity);
+    }
+    #endregion
 
+    #region Tire Screeching
+    public bool IsTireScreeching(out float lateralVelocity, out bool isBraking)
+    {
+        lateralVelocity = GetLateralVelocity();
+        isBraking = false;
+
+        if (accelerationInput < 0 && velocityVsUp > 0)
+        {
+            isBraking = true;
+            return true;
+        }
+
+        if (Mathf.Abs(GetLateralVelocity()) > IsTireScreechingValue)
+        {
+            return true;
+        }
+
+        return false;
+    }
+    #endregion
 }

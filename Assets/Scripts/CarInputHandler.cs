@@ -4,38 +4,27 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class CarInputHandler : MonoBehaviour
-{
-    TopDownCarController carController;
+{   
+    #region Variables
+    CarController carController;
+    #endregion
 
+    #region Awake
     void Awake()
     {
-        carController = GetComponent<TopDownCarController>();
+        carController = GetComponent<CarController>();
     }
+    #endregion
 
-    // Update is called once per frame
+    #region Update
     void Update()
     {
-        
         Vector2 inputVector = Vector2.zero;
         inputVector.x = Input.GetAxis("Horizontal");
         inputVector.y = Input.GetAxis("Vertical");
         
-        
         carController.SetInputVector(inputVector);
     }
-/*
-    public void KMmovement()
-    {
-        Vector2 inputVector = Vector2.zero;
-        inputVector.x = amongus
-        inputVector.y = sus
-    }
+    #endregion
 
-    public void Controllermovement()
-    {
-        Vector2 inputVector = Vector2.zero;
-        inputVector.x = amongus
-        inputVector.y = sus
-    }
-    */
 }
