@@ -294,6 +294,198 @@ InputManager:
     axis: 0
     joyNum: 0
   - serializedVersion: 3
+    m_Name: Horizontal_P1
+    descriptiveName: Steer
+    descriptiveNegativeName: 
+    negativeButton: a
+    positiveButton: d
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 1000
+    dead: 0.001
+    sensitivity: 1000
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 0
+    joyNum: 0
+  - serializedVersion: 3
+    m_Name: Vertical_P1
+    descriptiveName: Accelerate Brake
+    descriptiveNegativeName: 
+    negativeButton: s
+    positiveButton: w
+    altNegativeButton: joystick 1 button 6
+    altPositiveButton: joystick 1 button 7
+    gravity: 1000
+    dead: 0.001
+    sensitivity: 1000
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 0
+    joyNum: 0
+  - serializedVersion: 3
+    m_Name: Horizontal_P2
+    descriptiveName: Steer
+    descriptiveNegativeName: 
+    negativeButton: left
+    positiveButton: right
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 1000
+    dead: 0.001
+    sensitivity: 1000
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 0
+    joyNum: 0
+  - serializedVersion: 3
+    m_Name: Vertical_P2
+    descriptiveName: Accelerate Brake
+    descriptiveNegativeName: 
+    negativeButton: down
+    positiveButton: up
+    altNegativeButton: joystick 2 button 6
+    altPositiveButton: joystick 2 button 7
+    gravity: 1000
+    dead: 0.001
+    sensitivity: 1000
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 0
+    joyNum: 0
+  - serializedVersion: 3
+    m_Name: Horizontal_P3
+    descriptiveName: Steer
+    descriptiveNegativeName: 
+    negativeButton: h
+    positiveButton: k
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 1000
+    dead: 0.001
+    sensitivity: 1000
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 0
+    joyNum: 0
+  - serializedVersion: 3
+    m_Name: Vertical_P3
+    descriptiveName: Accelerate Brake
+    descriptiveNegativeName: 
+    negativeButton: j
+    positiveButton: u
+    altNegativeButton: joystick 3 button 6
+    altPositiveButton: joystick 3 button 7
+    gravity: 1000
+    dead: 0.001
+    sensitivity: 1000
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 0
+    joyNum: 0
+  - serializedVersion: 3
+    m_Name: Horizontal_P4
+    descriptiveName: Steer
+    descriptiveNegativeName: 
+    negativeButton: '[4]'
+    positiveButton: '[6]'
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 1000
+    dead: 0.001
+    sensitivity: 1000
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 0
+    joyNum: 0
+  - serializedVersion: 3
+    m_Name: Vertical_P4
+    descriptiveName: Accelerate Brake
+    descriptiveNegativeName: 
+    negativeButton: '[5]'
+    positiveButton: '[8]'
+    altNegativeButton: joystick 4 button 6
+    altPositiveButton: joystick 4 button 7
+    gravity: 1000
+    dead: 0.001
+    sensitivity: 1000
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 0
+    joyNum: 0
+  - serializedVersion: 3
+    m_Name: Horizontal_P1
+    descriptiveName: Controller Turn
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: 
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 1
+    dead: 0.3
+    sensitivity: 0.9
+    snap: 0
+    invert: 0
+    type: 2
+    axis: 0
+    joyNum: 1
+  - serializedVersion: 3
+    m_Name: Horizontal_P2
+    descriptiveName: Controller Turn
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: 
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 1
+    dead: 0.3
+    sensitivity: 0.9
+    snap: 0
+    invert: 0
+    type: 2
+    axis: 0
+    joyNum: 2
+  - serializedVersion: 3
+    m_Name: Horizontal_P3
+    descriptiveName: Controller Turn
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: 
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 1
+    dead: 0.3
+    sensitivity: 0.9
+    snap: 0
+    invert: 0
+    type: 2
+    axis: 0
+    joyNum: 3
+  - serializedVersion: 3
+    m_Name: Horizontal_P4
+    descriptiveName: Controller Turn
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: 
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 1
+    dead: 0.3
+    sensitivity: 0.9
+    snap: 0
+    invert: 0
+    type: 2
+    axis: 0
+    joyNum: 4
+  - serializedVersion: 3
     m_Name: Enable Debug Button 1
     descriptiveName: 
     descriptiveNegativeName: 
@@ -485,3 +677,4 @@ InputManager:
     type: 2
     axis: 5
     joyNum: 0
+  m_UsePhysicalKeys: 1

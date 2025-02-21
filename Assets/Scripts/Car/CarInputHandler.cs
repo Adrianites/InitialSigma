@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class CarInputHandler : MonoBehaviour
 {   
@@ -21,17 +20,8 @@ public class CarInputHandler : MonoBehaviour
     void Update()
     {
         Vector2 inputVector = Vector2.zero;
-        
-        switch (playerID)
-        {
-            case 1:
-                inputVector = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-                break;
-            case 2:
-                inputVector = new Vector2(Input.GetAxis("Horizontal2"), Input.GetAxis("Vertical2"));
-                break;
-        }
-        
+                inputVector.x = Input.GetAxis("Horizontal_P" + playerID);
+                inputVector.y = Input.GetAxis("Vertical_P" + playerID);
         carController.SetInputVector(inputVector);
     }
     #endregion

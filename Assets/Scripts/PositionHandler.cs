@@ -7,11 +7,12 @@ using UnityEngine;
 public class PositionHandler : MonoBehaviour
 {
     #region Variables
+    LeaderboardUIHandler leaderboardUIHandler;
     public List<CarLapCounter> lapCounters = new List<CarLapCounter>();
     #endregion
 
-    #region Start
-    void Start()
+    #region Awake
+    void Awake()
     {
         CarLapCounter[] lapCountersArray = FindObjectsOfType<CarLapCounter>();
 
@@ -21,6 +22,15 @@ public class PositionHandler : MonoBehaviour
         {
             lapCounter.OnPassCheckpoint += OnPassCheckpoint;
         }
+
+        leaderboardUIHandler = FindObjectOfType<LeaderboardUIHandler>();
+    }
+    #endregion
+
+    #region Start
+    void Start()
+    {
+        leaderboardUIHandler.UpdateList(lapCounters);
     }
     #endregion
 
@@ -32,6 +42,8 @@ public class PositionHandler : MonoBehaviour
         int carPosition = lapCounters.IndexOf(carLapCounter) + 1;
 
         carLapCounter.SetCarPos(carPosition);
+
+        leaderboardUIHandler.UpdateList(lapCounters);
     }
     #endregion
 

@@ -4,7 +4,6 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - O2Bar
   - Jump
   - BridgeTrigger
   - TunnelTrigger

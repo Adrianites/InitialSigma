@@ -68,17 +68,22 @@ public class CarController : MonoBehaviour
         {
             accelerationInput = 0;
         }
-
-        if(accelerationInput == 0)
+        if (isJumping)
         {
-            rb.drag = Mathf.Lerp(rb.drag, 3.0f, Time.deltaTime * 3);
+            return;
         }
         else
         {
-            rb.drag = 0;
+            if(accelerationInput == 0)
+            {
+                rb.drag = Mathf.Lerp(rb.drag, 3.0f, Time.deltaTime * 3);
+            }
+            else
+            {
+                rb.drag = 0;
+            }
         }
-
-
+    
         velocityVsUp = Vector2.Dot(transform.up, rb.velocity);
 
         if(velocityVsUp > maxSpeed && accelerationInput > 0)
@@ -105,12 +110,19 @@ public class CarController : MonoBehaviour
     #region Apply Steering
     void ApplySteering()
     {
-        float minSpeedBeforeTurningFactor = (rb.velocity.magnitude / ApplySteeringValue);
-        minSpeedBeforeTurningFactor = Mathf.Clamp01(minSpeedBeforeTurningFactor);
+        if(isJumping)
+        {
+            return;
+        }
+        else
+        {
+            float minSpeedBeforeTurningFactor = (rb.velocity.magnitude / ApplySteeringValue);
+            minSpeedBeforeTurningFactor = Mathf.Clamp01(minSpeedBeforeTurningFactor);
 
-        rotationAngle -= steeringInput * turnFactor * minSpeedBeforeTurningFactor;
-        
-        rb.MoveRotation(rotationAngle);
+            rotationAngle -= steeringInput * turnFactor * minSpeedBeforeTurningFactor;
+            
+            rb.MoveRotation(rotationAngle);
+        }
     }
     #endregion
 
@@ -218,11 +230,10 @@ public class CarController : MonoBehaviour
 
             yield return null;
         }
-
+        
         if(Physics2D.OverlapCircle(transform.position, LandingCheckCircleSize))
         {
             isJumping = false;
-
             Jump(0.2f, 0.6f);
         }
         else
