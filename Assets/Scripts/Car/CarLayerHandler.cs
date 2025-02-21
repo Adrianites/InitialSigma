@@ -35,6 +35,8 @@ public class CarLayerHandler : MonoBehaviour
         }
 
         carCollider = GetComponentInChildren<Collider2D>();
+
+        carCollider.gameObject.layer = LayerMask.NameToLayer("ObjectInTunnel");
     }
     #endregion
 
@@ -108,11 +110,13 @@ public class CarLayerHandler : MonoBehaviour
         if (collider2D.CompareTag("BridgeTrigger"))
         {
             isDrivingOnBridge = true;
+            carCollider.gameObject.layer = LayerMask.NameToLayer("ObjectOnBridge");
             UpdateSortingAndCollisionLayers();
         }
         else if (collider2D.CompareTag("TunnelTrigger"))
         {
             isDrivingOnBridge = false;
+            carCollider.gameObject.layer = LayerMask.NameToLayer("ObjectInTunnel");
             UpdateSortingAndCollisionLayers();
         }
     }

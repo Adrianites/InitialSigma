@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class CarInputHandler : MonoBehaviour
 {   
     #region Variables
+    public int playerID = 1;
     CarController carController;
     #endregion
 
@@ -20,15 +21,18 @@ public class CarInputHandler : MonoBehaviour
     void Update()
     {
         Vector2 inputVector = Vector2.zero;
-        inputVector.x = Input.GetAxis("Horizontal");
-        inputVector.y = Input.GetAxis("Vertical");
+        
+        switch (playerID)
+        {
+            case 1:
+                inputVector = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+                break;
+            case 2:
+                inputVector = new Vector2(Input.GetAxis("Horizontal2"), Input.GetAxis("Vertical2"));
+                break;
+        }
         
         carController.SetInputVector(inputVector);
-
-        if(Input.GetButtonDown("Jump"))
-        {
-            carController.Jump(1f, 0f);
-        }
     }
     #endregion
 

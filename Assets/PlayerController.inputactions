@@ -2,11 +2,20 @@
     "name": "PlayerController",
     "maps": [
         {
-            "name": "KM",
+            "name": "Player1MoveKeyboard",
             "id": "6200d07d-7a27-470f-8cb3-f2bba11a8124",
             "actions": [
                 {
-                    "name": "Movement",
+                    "name": "Move",
+                    "type": "Button",
+                    "id": "4be99d6d-596f-4760-811f-bc357110131d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Steer",
                     "type": "Button",
                     "id": "60204987-8768-4b20-a82a-f2825e88c92e",
                     "expectedControlType": "Button",
@@ -18,12 +27,12 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "83673a62-4295-4dc3-9115-525d2eb964d6",
+                    "id": "a3ec728a-e297-4819-86c9-58757fc8c9e8",
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Movement",
+                    "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -34,18 +43,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "20f7c2f9-04fa-4702-b8a3-1de974c67057",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement",
+                    "action": "Steer",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -56,20 +54,40 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Movement",
+                    "action": "Steer",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "baa68f14-5230-4255-88f8-a958ba3703a0",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
             ]
         },
         {
-            "name": "Controller",
-            "id": "d982a75d-cdf5-4e1e-a042-3ee6a0c6e24f",
+            "name": "Player2MoveKeyboard",
+            "id": "b822f496-f4da-46e5-ae92-1295b21cc0bf",
             "actions": [
                 {
-                    "name": "New action",
+                    "name": "Move",
                     "type": "Button",
-                    "id": "b3a1f983-1a6c-4826-8a2c-35aaac472d8d",
+                    "id": "5cd09104-09d1-4a3c-b00d-d5ea2b2dbe8b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Steer",
+                    "type": "Button",
+                    "id": "05d8c28d-2336-4689-a2a8-c4ed08f6e171",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -79,7 +97,292 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "3ee51461-0ace-43d0-8b1e-dc2000c21a26",
+                    "id": "8424ec51-b6fd-43d7-821b-ae3d45765e3d",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4310a4a0-5e23-4829-9b7c-93313d6248f0",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "03db1070-b799-48db-921e-e5c44f09ff87",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Steer",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "30010fdf-5709-4c89-bcac-ba02db805d37",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Steer",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Player3MoveKeyboard",
+            "id": "e1ebfefc-98bf-44f1-aaa6-77586124d835",
+            "actions": [
+                {
+                    "name": "Move",
+                    "type": "Button",
+                    "id": "349de01b-8dc9-4872-8246-43a4a19dbac1",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Steer",
+                    "type": "Button",
+                    "id": "2a0bb061-ab48-43af-9f95-1ccffdbfff19",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "e722c068-81e6-48e0-a1c2-1f1cd123ccdd",
+                    "path": "<Keyboard>/i",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bd704ca5-46ca-468b-a017-cbc2ebfe44b7",
+                    "path": "<Keyboard>/j",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Steer",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5f9d3e59-1197-490a-ad1b-7522c7ee99bb",
+                    "path": "<Keyboard>/l",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Steer",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9da00dd2-d494-4c43-a31e-5be06e60e105",
+                    "path": "<Keyboard>/k",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Player4MoveKeyboard",
+            "id": "515be50a-b342-4429-b617-888d3794d811",
+            "actions": [
+                {
+                    "name": "Move",
+                    "type": "Button",
+                    "id": "380e6d27-e9f5-44d2-9b59-4e0fa40281f2",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Steer",
+                    "type": "Button",
+                    "id": "467224aa-e985-4c7e-937c-87057e3aa9e8",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "407123da-cb10-4750-bdc3-2da60c98039b",
+                    "path": "<Keyboard>/numpad8",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0efd4da1-a0b5-4f7a-89bb-73959296e87f",
+                    "path": "<Keyboard>/numpad4",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Steer",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "47a77fc3-117f-4b03-a7c1-a48d048d2210",
+                    "path": "<Keyboard>/numpad6",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Steer",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9f2c6cbe-c495-4776-b060-53a6c1a85472",
+                    "path": "<Keyboard>/numpad5",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Player1MoveController",
+            "id": "d40b2e40-f1ff-41a5-85b0-82e2d0dad229",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "70b8a3ac-133d-4211-9c39-1e4994387fce",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "a171fec1-1a16-4f7f-9c8a-1c458c824ad6",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Player2MoveController",
+            "id": "f91ee6d5-4ddf-42db-bdf3-8aaccf03af71",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "e086f11b-7ecd-46b9-afa5-6a80b842c765",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "f3d5c62b-c81f-48ce-8094-408eace5527b",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Player3MoveController",
+            "id": "11f05aba-6bef-45cb-9f08-17bb66740f72",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "32048ada-68d9-49e7-b15b-451691dae209",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "2433b0db-9e7f-40a4-b647-0792c380bdf5",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Player4MoveController",
+            "id": "40b0c726-8f04-4f53-8842-afcffdb9929e",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "5801ac20-ae34-4e95-889a-f87717e09ae0",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "0537e356-de56-408b-a0fa-8674602f3a2a",
                     "path": "",
                     "interactions": "",
                     "processors": "",
@@ -91,5 +394,28 @@
             ]
         }
     ],
-    "controlSchemes": []
+    "controlSchemes": [
+        {
+            "name": "Keyboard",
+            "bindingGroup": "Keyboard",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        },
+        {
+            "name": "Controller",
+            "bindingGroup": "Controller",
+            "devices": [
+                {
+                    "devicePath": "<Gamepad>",
+                    "isOptional": true,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
 }
