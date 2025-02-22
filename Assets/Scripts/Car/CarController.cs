@@ -68,11 +68,7 @@ public class CarController : MonoBehaviour
         {
             accelerationInput = 0;
         }
-        if (isJumping)
-        {
-            return;
-        }
-        else
+        if (!isJumping)
         {
             if(accelerationInput == 0)
             {
@@ -110,11 +106,7 @@ public class CarController : MonoBehaviour
     #region Apply Steering
     void ApplySteering()
     {
-        if(isJumping)
-        {
-            return;
-        }
-        else
+        if(!isJumping)
         {
             float minSpeedBeforeTurningFactor = (rb.velocity.magnitude / ApplySteeringValue);
             minSpeedBeforeTurningFactor = Mathf.Clamp01(minSpeedBeforeTurningFactor);

@@ -5534,11 +5534,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2362085336899417429}
+  - component: {fileID: 1469670491728921087}
   - component: {fileID: 7011185678710131611}
   - component: {fileID: 5038368219816541939}
   - component: {fileID: 4924952506551989224}
   - component: {fileID: 1019069088595243825}
   - component: {fileID: 5802433112560461799}
+  - component: {fileID: 5615658810199094058}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -5567,6 +5569,19 @@ Transform:
   - {fileID: 1238811689889568902}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1469670491728921087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3480109949449264251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d52097a50804a34c9fc9df5afa5647c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerID: 1
 --- !u!114 &7011185678710131611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5705,6 +5720,20 @@ MonoBehaviour:
   positionText: {fileID: 4072608376384533422}
   carColour: {r: 1, g: 1, b: 1, a: 1}
   delayUntilHidePosition: 2
+--- !u!114 &5615658810199094058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3480109949449264251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182def9344ad45f4088b9ce99d6e6eb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  carSprite: {fileID: 2383186548106236435}
+  ghostCarPlaybackPrefab: {fileID: 7014592006959557955, guid: 366e99f9e60a6f3408f6f9c241f6d10c, type: 3}
 --- !u!1 &3868157101489939155
 GameObject:
   m_ObjectHideFlags: 0
