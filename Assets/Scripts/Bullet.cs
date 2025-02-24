@@ -5,13 +5,13 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     //make public later on
-    [Range(1, 10)]
+    //[Range(1, 10)]
     [SerializeField] 
-    private float speed = 10f;
+    public float speed = 10f;
 
-    [Range(1, 10)]
+    //[Range(1, 10)]
     [SerializeField] 
-    private float lifeTime = 3f;
+    public float lifeTime = 3f;
 
     Rigidbody2D rb;
 

@@ -6,6 +6,8 @@ public class CarInputHandler : MonoBehaviour
 {   
     #region Variables
     public int playerID = 1;
+
+    
     CarController carController;
     #endregion
 
@@ -22,6 +24,7 @@ public class CarInputHandler : MonoBehaviour
         Vector2 inputVector = Vector2.zero;
                 inputVector.x = Input.GetAxis("Horizontal_P" + playerID);
                 inputVector.y = Input.GetAxis("Vertical_P" + playerID);
+                
         carController.SetInputVector(inputVector);
     }
     #endregion

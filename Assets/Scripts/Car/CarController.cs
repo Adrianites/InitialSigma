@@ -28,6 +28,15 @@ public class CarController : MonoBehaviour
     public float PushForwardJumpValue = 10.0f;
     public float LandingCheckCircleSize = 1.5f;
 
+    [Header("Gun")]
+    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private GameObject firingPoint;
+    [SerializeField] private Transform firePoint;
+    [Range(0.1f, 1f)]
+    [SerializeField] public float fireRate = 0.5f;
+    
+    private float fireTimer;
+
     // local
     float accelerationInput = 0;
     float steeringInput = 0; 
@@ -49,6 +58,24 @@ public class CarController : MonoBehaviour
         carSFX = GetComponent<CarSFX>();
     }
     #endregion
+
+    void Update()
+    {
+        if (Input.GetKey(KeyCode.LeftShift) && fireTimer <= 0f)
+        {
+            Shoot();
+            fireTimer = fireRate;
+        }
+        else
+        {
+            fireTimer -= Time.deltaTime;
+        }
+    }
+
+    private void Shoot()
+    {
+        Instantiate(bulletPrefab, firingPoint.transform.position, firingPoint.transform.rotation);
+    }
 
     #region Fixed Update
     void FixedUpdate()

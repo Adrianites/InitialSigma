@@ -68,6 +68,9 @@ TagManager:
   - name: SkidmarksBridge
     uniqueID: 4216262479
     locked: 0
+  - name: Gun
+    uniqueID: 1642536727
+    locked: 0
   - name: Flying
     uniqueID: 1045624793
     locked: 0
