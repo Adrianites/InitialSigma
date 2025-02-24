@@ -33,7 +33,7 @@ public class CarController : MonoBehaviour
     [SerializeField] private GameObject firingPoint;
     [SerializeField] private Transform firePoint;
     [Range(0.1f, 1f)]
-    [SerializeField] public float fireRate = 0.5f;
+    [SerializeField] private float fireRate = 0.5f;
     
     private float fireTimer;
 
