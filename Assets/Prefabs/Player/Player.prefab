@@ -5709,6 +5709,7 @@ GameObject:
   - component: {fileID: 1019069088595243825}
   - component: {fileID: 5802433112560461799}
   - component: {fileID: 5615658810199094058}
+  - component: {fileID: 6065999735247560837}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -5751,6 +5752,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerID: 1
+  movement: {x: 0, y: 0}
 --- !u!114 &7011185678710131611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5820,6 +5822,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 4191138111929373087, guid: da9bbc3bd9308694baebe6f94c64a747, type: 3}
   firingPoint: {fileID: 4533507900598678164}
   firePoint: {fileID: 0}
+  fireRate: 1
 --- !u!50 &5038368219816541939
 Rigidbody2D:
   serializedVersion: 4
@@ -5906,6 +5909,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   carSprite: {fileID: 2383186548106236435}
   ghostCarPlaybackPrefab: {fileID: 7014592006959557955, guid: 366e99f9e60a6f3408f6f9c241f6d10c, type: 3}
+--- !u!114 &6065999735247560837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3480109949449264251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 4b7fe67a9efbebd42bae8c0b25ec28fa, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &3868157101489939155
 GameObject:
   m_ObjectHideFlags: 0

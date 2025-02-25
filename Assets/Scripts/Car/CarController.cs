@@ -59,6 +59,12 @@ public class CarController : MonoBehaviour
     }
     #endregion
 
+    //TODO move into different script
+
+    public void OnButton(){
+        Debug.Log("Fire");
+    }
+
     void Update()
     {
         if (Input.GetKey(KeyCode.LeftShift) && fireTimer <= 0f)
