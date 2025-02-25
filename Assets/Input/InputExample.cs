@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class InputExample : MonoBehaviour
 {
+
+    public Vector2 movement;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -11,7 +14,7 @@ public class InputExample : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void OnMove()
     {
         
     }

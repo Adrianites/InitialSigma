@@ -4,9 +4,34 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [Header("Player Health")]
-    public float health = 100;
-    public float maxHealth = 100;
+
+    public static GameManager instance;
+
+    public PlayerStats playerStats;
+
+    public void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+        DontDestroyOnLoad(this.gameObject);
+    }
+
+    //health
+    public void TakeDamage(float damage)
+    {
+        playerStats.health -= damage;
+        if (playerStats.health <= 0)
+        {
+            playerStats.health = 0;
+        }
+    }
+
     
 
 }
