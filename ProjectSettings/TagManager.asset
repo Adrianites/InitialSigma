@@ -10,6 +10,7 @@ TagManager:
   - BridgeCollider
   - TunnelCollider
   - Checkpoint
+  - Spawnpoint
   layers:
   - Default
   - TransparentFX
@@ -19,10 +20,10 @@ TagManager:
   - UI
   - ObjectOnBridge
   - ObjectInTunnel
-  - 
-  - 
-  - 
-  - 
+  - Player1
+  - Player2
+  - Player3
+  - Player4
   - 
   - 
   - 
