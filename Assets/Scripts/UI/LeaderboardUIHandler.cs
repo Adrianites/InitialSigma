@@ -32,8 +32,7 @@ public class LeaderboardUIHandler : MonoBehaviour
     public void UpdateList(List<CarLapCounter> lapCounters)
     {
         VerticalLayoutGroup leaderboardLayoutGroup = GetComponentInChildren<VerticalLayoutGroup>();
-
-        // Resize the array if necessary
+        
         if (lapCounters.Count > setLeaderboardItems.Length)
         {
             int oldLength = setLeaderboardItems.Length;
