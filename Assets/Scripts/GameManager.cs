@@ -23,14 +23,7 @@ public class GameManager : MonoBehaviour
     }
 
     //health
-    public void TakeDamage(float damage)
-    {
-        playerStats.health -= damage;
-        if (playerStats.health <= 0)
-        {
-            playerStats.health = 0;
-        }
-    }
+ 
 
     
 
