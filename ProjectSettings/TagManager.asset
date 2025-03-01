@@ -78,3 +78,15 @@ TagManager:
   - name: Particles
     uniqueID: 937395771
     locked: 0
+  - name: CliffUpper
+    uniqueID: 2952601329
+    locked: 0
+  - name: BackTree
+    uniqueID: 994512807
+    locked: 0
+  - name: MidTree
+    uniqueID: 1739852407
+    locked: 0
+  - name: FrontTree
+    uniqueID: 4244312701
+    locked: 0
