@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem.Interactions;
+using UnityEngine.UI;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -9,9 +10,12 @@ public class PlayerStats : MonoBehaviour
     public float maxHealth = 100;
     public float currentHealth = 100;
 
+    public UIManager uiManager;
+
     void Awake()
     {
         currentHealth = maxHealth;
+        uiManager = FindObjectOfType<UIManager>();
         Debug.Log("Player health initialized to: " + currentHealth);
     }
 
@@ -34,7 +38,7 @@ public class PlayerStats : MonoBehaviour
     public void Die()
     {
         Debug.Log("Player died");
-        Destroy(gameObject);
+        uiManager.PauseGame();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
