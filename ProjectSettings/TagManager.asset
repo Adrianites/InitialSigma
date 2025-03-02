@@ -84,6 +84,9 @@ TagManager:
   - name: CliffUpper
     uniqueID: 2952601329
     locked: 0
+  - name: Player
+    uniqueID: 420339717
+    locked: 0
   - name: BackTree
     uniqueID: 994512807
     locked: 0
