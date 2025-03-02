@@ -11,6 +11,8 @@ TagManager:
   - TunnelCollider
   - Checkpoint
   - Spawnpoint
+  - Enemy
+  - DamageZone
   layers:
   - Default
   - TransparentFX
