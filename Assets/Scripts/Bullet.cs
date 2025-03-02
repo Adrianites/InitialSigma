@@ -31,17 +31,17 @@ public class Bullet : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("Bullet hit: " + other.gameObject.name);
-        // Check if the bullet collides with an enemy
+       
         if (other.CompareTag("Enemy"))
         {
             // Get the Enemy script and call TakeDamage
             Enemy enemy = other.GetComponent<Enemy>();
             if (enemy != null)
             {
-                enemy.TakeDamage(damage);  // Deal damage to the enemy
+                enemy.TakeDamage(damage); 
             }
 
-            // Destroy the bullet after it hits something
+            
             Destroy(gameObject);
         }
     }
