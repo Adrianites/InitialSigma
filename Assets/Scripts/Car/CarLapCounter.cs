@@ -10,6 +10,7 @@ public class CarLapCounter : MonoBehaviour
     #region Variables
     public TextMeshProUGUI positionText;
     public Color carColour;
+    UIManager uiManager;
     public float delayUntilHidePosition = 2;
     int passedCheckpointNum = 0;
     float timeSinceLastCheckpoint = 0;
@@ -81,6 +82,7 @@ public class CarLapCounter : MonoBehaviour
         {
             if (raceFinished)
             {
+                uiManager.Finish();
                 return;
             }
 
@@ -94,7 +96,7 @@ public class CarLapCounter : MonoBehaviour
                 
                 timeSinceLastCheckpoint = Time.time;
 
-                if (checkpoint.finishLine)
+                if (checkpoint.isFinishLine)
                 {
                     passedCheckpointNum = 0;
                     lapsCompleted++;

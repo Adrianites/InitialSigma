@@ -5,8 +5,7 @@ using UnityEngine;
 public class Checkpoint : MonoBehaviour
 {
     #region Variables
-    public bool finishLine = false;
+    public bool isFinishLine = false;
     public int checkpointNumber = 1;
     #endregion
-    
 }

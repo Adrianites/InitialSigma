@@ -46,6 +46,4 @@ public class PositionHandler : MonoBehaviour
         leaderboardUIHandler.UpdateList(lapCounters);
     }
     #endregion
-
-
 }
