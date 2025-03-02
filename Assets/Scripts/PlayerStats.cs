@@ -13,7 +13,7 @@ public class PlayerStats : MonoBehaviour
     public UIManager uiManager;
 
     void Awake()
-    {
+    {   
         currentHealth = maxHealth;
         uiManager = FindObjectOfType<UIManager>();
         Debug.Log("Player health initialized to: " + currentHealth);
@@ -52,6 +52,10 @@ public class PlayerStats : MonoBehaviour
                 Debug.Log("Player entered DamageZone: " + damageZone.gameObject.name);
                 TakeDamage(damageZone.damageAmount);
             }
+        }
+        else if (collision.CompareTag("EndGame"))
+        {
+            uiManager.WinMenu();
         }
     }
 }

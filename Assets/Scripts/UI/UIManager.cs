@@ -1,5 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+#if (UNITY_EDITOR)
+using UnityEditor;
+#endif
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -7,8 +10,9 @@ using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour
 {
     #region Variables
-    GameObject pauseCanvas = null;
+    GameObject deathCanvas = null;
     GameObject inGameCanvas = null;
+    GameObject winCanvas = null;
     public PlayerManager playerManager;
     public PlayerData playerData;
     public Toggle player2Toggle;
@@ -19,8 +23,9 @@ public class UIManager : MonoBehaviour
     #region Awake
     private void Awake()
     {
-        pauseCanvas = GameObject.Find("PauseCanvas");
+        deathCanvas = GameObject.Find("DeathCanvas");
         inGameCanvas = GameObject.Find("InGameCanvas");
+        winCanvas = GameObject.Find("WinCanvas");
         playerManager = GameObject.FindObjectOfType<PlayerManager>();
         playerData = Resources.Load<PlayerData>("PlayerData");
     }
@@ -39,14 +44,18 @@ public class UIManager : MonoBehaviour
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
         
-            if (pauseCanvas != null)
+            if (deathCanvas != null)
             {
-                pauseCanvas.SetActive(false);
+                deathCanvas.SetActive(false);
             }
 
             if (inGameCanvas != null)
             {
                 inGameCanvas.SetActive(true);
+            }
+            if (winCanvas != null)
+            {
+                winCanvas.SetActive(false);
             }
         }
 
@@ -80,9 +89,9 @@ public class UIManager : MonoBehaviour
     public void PauseGame()
     {
         Time.timeScale = 0;
-        if(pauseCanvas != null)
+        if(deathCanvas != null)
         {
-            pauseCanvas.SetActive(true);
+            deathCanvas.SetActive(true);
         }
         
         if(inGameCanvas != null)
@@ -94,13 +103,35 @@ public class UIManager : MonoBehaviour
     }
     #endregion
 
+    #region End Menu
+    public void WinMenu()
+    {
+        Time.timeScale = 0;
+        if(winCanvas != null)
+        {
+            winCanvas.SetActive(true);
+        }
+        
+        if(inGameCanvas != null)
+        {
+            inGameCanvas.SetActive(false);
+        }
+        if(deathCanvas != null)
+        {
+            deathCanvas.SetActive(false);
+        }
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Confined;
+    }
+    #endregion
+
     #region Resume Game
     public void ResumeGame()
     {
         Time.timeScale = 1;
-        if(pauseCanvas != null)
+        if(deathCanvas != null)
         {
-            pauseCanvas.SetActive(false);
+            deathCanvas.SetActive(false);
         }
         
         if(inGameCanvas != null)
@@ -112,13 +143,40 @@ public class UIManager : MonoBehaviour
     }
     #endregion
 
+    #region MainMenu
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+        Time.timeScale = 1;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Confined;
+    }
+    #endregion
+
+    #region Quit Game
+    public void QuitGame()
+    {
+            #if (UNITY_EDITOR || DEVELOPMENT_BUILD)
+                Debug.Log(this.name + " : " + this.GetType() + " : " + System.Reflection.MethodBase.GetCurrentMethod().Name);
+            #endif
+
+            #if (UNITY_EDITOR)
+                UnityEditor.EditorApplication.isPlaying = false;
+            #elif (UNITY_STANDALONE)
+                Application.Quit();
+            #elif (UNITY_WEBGL)
+                SceneManager.LoadScene("QuitScene");
+            #endif
+    }
+    #endregion
+
     #region On Finish Line
     public void Finish()
     {
         Time.timeScale = 0;
-        if(pauseCanvas != null)
+        if(deathCanvas != null)
         {
-            pauseCanvas.SetActive(true);
+            deathCanvas.SetActive(true);
         }
         
         if(inGameCanvas != null)

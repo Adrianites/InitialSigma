@@ -13,6 +13,7 @@ TagManager:
   - Spawnpoint
   - Enemy
   - DamageZone
+  - EndGame
   layers:
   - Default
   - TransparentFX

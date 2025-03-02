@@ -15,8 +15,10 @@ public class CarLapCounter : MonoBehaviour
     int passedCheckpointNum = 0;
     float timeSinceLastCheckpoint = 0;
     int NumOfPassedCheckpoints = 0;
+    [SerializeField]
     int lapsCompleted = 0;
-    const int lapsToComplete = 2;
+    [SerializeField]
+    int lapsToComplete = 2;
     bool raceFinished = false;
     int carPosition = 0;
     bool isHideRoutineRunning = false;
@@ -27,6 +29,7 @@ public class CarLapCounter : MonoBehaviour
     void Awake()
     {
         positionText.color = carColour;
+        uiManager = FindObjectOfType<UIManager>();
     }
     #endregion
 
@@ -82,7 +85,7 @@ public class CarLapCounter : MonoBehaviour
         {
             if (raceFinished)
             {
-                uiManager.Finish();
+                uiManager.WinMenu();
                 return;
             }
 
