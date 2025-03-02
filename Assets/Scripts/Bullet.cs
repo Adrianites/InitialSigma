@@ -13,6 +13,8 @@ public class Bullet : MonoBehaviour
     [SerializeField] 
     public float lifeTime = 3f;
 
+    public float damage = 10f;
+
     Rigidbody2D rb;
 
     private void Start() 
@@ -24,6 +26,24 @@ public class Bullet : MonoBehaviour
     private void FixedUpdate() 
     {
         rb.velocity = transform.up * speed;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log("Bullet hit: " + other.gameObject.name);
+        // Check if the bullet collides with an enemy
+        if (other.CompareTag("Enemy"))
+        {
+            // Get the Enemy script and call TakeDamage
+            Enemy enemy = other.GetComponent<Enemy>();
+            if (enemy != null)
+            {
+                enemy.TakeDamage(damage);  // Deal damage to the enemy
+            }
+
+            // Destroy the bullet after it hits something
+            Destroy(gameObject);
+        }
     }
 
 }
