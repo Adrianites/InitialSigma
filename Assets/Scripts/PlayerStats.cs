@@ -73,6 +73,7 @@ public class PlayerStats : MonoBehaviour
             {
                 Debug.Log("Player entered MineRange: " + mine.gameObject.name);
                 MineTakeDamage(mine.damageAmount);
+                Object.Destroy(mine.gameObject);
             }
         }
     }
