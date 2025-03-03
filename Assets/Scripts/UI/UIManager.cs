@@ -31,6 +31,13 @@ public class UIManager : MonoBehaviour
     }
     #endregion
 
+    #region Select Car
+    public void SelectCar()
+    {
+        SceneManager.LoadScene("Test");
+    }
+    #endregion
+    
     #region Start
     private void Start()
     {
