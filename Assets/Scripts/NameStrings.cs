@@ -9,6 +9,7 @@ internal class NameStrings
     #region Anim Strings
     internal static string CarAppear = "UiCarAppear";
     internal static string CarDisappear = "UiCarDisappear";
+    //internal static string isDetected? = "isDetected";
     #endregion
 
     #region Scene Strings
