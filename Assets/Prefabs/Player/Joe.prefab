@@ -11219,7 +11219,7 @@ MonoBehaviour:
   driftFactor: 0.3
   accelerationFactor: 30
   turnFactor: 3.5
-  maxSpeed: 70
+  maxSpeed: 80
   carSR: {fileID: 3389037818054293368}
   shadowSR: {fileID: 3561416483987363521}
   jumpCurve:
@@ -11273,7 +11273,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 4191138111929373087, guid: da9bbc3bd9308694baebe6f94c64a747, type: 3}
   firingPoint: {fileID: 1942138429669217177}
   firePoint: {fileID: 0}
-  fireRate: 1
+  fireRate: 0.3
 --- !u!50 &7081610658476719445
 Rigidbody2D:
   serializedVersion: 4
