@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class DamageZone : MonoBehaviour
 {
-    public float damageAmount = 10f; // Amount of damage to deal to the player
+    public float damageAmount = 10f;
     
 }

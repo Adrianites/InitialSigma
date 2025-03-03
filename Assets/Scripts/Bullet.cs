@@ -4,12 +4,9 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    //make public later on
-    //[Range(1, 10)]
     [SerializeField] 
     public float speed = 10f;
 
-    //[Range(1, 10)]
     [SerializeField] 
     public float lifeTime = 3f;
 
@@ -34,7 +31,6 @@ public class Bullet : MonoBehaviour
        
         if (other.CompareTag("Enemy"))
         {
-            // Get the Enemy script and call TakeDamage
             Enemy enemy = other.GetComponent<Enemy>();
             if (enemy != null)
             {
