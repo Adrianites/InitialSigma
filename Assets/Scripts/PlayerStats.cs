@@ -11,9 +11,6 @@ public class PlayerStats : MonoBehaviour
     public float currentHealth = 100;
 
     public UIManager uiManager;
-    Mine mine;
-
-
 
     void Awake()
     {   
@@ -71,8 +68,12 @@ public class PlayerStats : MonoBehaviour
         }
         else if (collision.CompareTag("Mine"))
         {   
-            Debug.Log("Player entered MineRange: " + gameObject.name);
-            MineTakeDamage(mine.damageAmount);
+            Mine mine = collision.GetComponent<Mine>();
+            if (mine != null)
+            {
+                Debug.Log("Player entered MineRange: " + mine.gameObject.name);
+                MineTakeDamage(mine.damageAmount);
+            }
         }
     }
 }
