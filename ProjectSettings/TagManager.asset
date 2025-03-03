@@ -81,11 +81,17 @@ TagManager:
   - name: Particles
     uniqueID: 937395771
     locked: 0
+  - name: GrassUpper
+    uniqueID: 2032783969
+    locked: 0
   - name: CliffUpper
     uniqueID: 2952601329
     locked: 0
   - name: Player
     uniqueID: 420339717
+    locked: 0
+  - name: BridgeRail
+    uniqueID: 2481922795
     locked: 0
   - name: BackTree
     uniqueID: 994512807
@@ -95,4 +101,7 @@ TagManager:
     locked: 0
   - name: FrontTree
     uniqueID: 4244312701
+    locked: 0
+  - name: Bullet
+    uniqueID: 1471572631
     locked: 0
