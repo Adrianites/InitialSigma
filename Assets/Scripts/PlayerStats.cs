@@ -46,7 +46,27 @@ public class PlayerStats : MonoBehaviour
             if (damageZone != null)
             {
                 Debug.Log("Player entered DamageZone: " + damageZone.gameObject.name);
+<<<<<<< Updated upstream
                 TakeDamage(damageZone.damageAmount);
+=======
+                DamageZoneTakeDamage(damageZone.damageAmount);
+            }
+        }
+        else if (collision.CompareTag("EndGame"))
+        {
+            uiManager.WinMenu();
+        }
+        else if (collision.CompareTag("Mine"))
+        {   
+            Mine mine = collision.GetComponent<Mine>();
+            if (mine != null)
+            {
+                Debug.Log("Player entered MineRange: " + mine.gameObject.name);
+                mine.GetComponent<Animation>();
+                mine.Detected();
+                MineTakeDamage(mine.damageAmount);
+                Destroy(mine.gameObject);
+>>>>>>> Stashed changes
             }
         }
     }
