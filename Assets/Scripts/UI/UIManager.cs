@@ -15,6 +15,7 @@ public class UIManager : MonoBehaviour
     GameObject winCanvas = null;
     public PlayerManager playerManager;
     public PlayerData playerData;
+    public LevelData levelData;
     public Toggle player2Toggle;
     public Toggle player3Toggle;
     public Toggle player4Toggle;
@@ -28,6 +29,7 @@ public class UIManager : MonoBehaviour
         winCanvas = GameObject.Find("WinCanvas");
         playerManager = GameObject.FindObjectOfType<PlayerManager>();
         playerData = Resources.Load<PlayerData>("PlayerData");
+        levelData = Resources.Load<LevelData>("LevelData");
     }
     #endregion
 
