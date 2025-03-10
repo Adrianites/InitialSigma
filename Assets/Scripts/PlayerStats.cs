@@ -84,6 +84,7 @@ public class PlayerStats : MonoBehaviour
             {
                 Debug.Log("Player entered SpikeRange: " + spike.gameObject.name);
                 DamageZoneTakeDamage(spike.damage);
+                
                 Object.Destroy(spike.gameObject);
             }
         }
