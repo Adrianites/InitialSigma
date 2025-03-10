@@ -61,7 +61,17 @@ public class CarController : MonoBehaviour
 
     //TODO move into different script
 
-    public void OnButton(){
+    public void OnButton()
+    {
+        if (fireTimer <= 0f)
+        {
+            Shoot();
+            fireTimer = fireRate;
+        }
+        else
+        {
+            fireTimer -= Time.deltaTime;
+        }
         Debug.Log("Fire");
     }
 

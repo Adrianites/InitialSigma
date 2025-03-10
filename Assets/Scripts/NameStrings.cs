@@ -9,10 +9,14 @@ internal class NameStrings
     #region Anim Strings
     internal static string CarAppear = "UiCarAppear";
     internal static string CarDisappear = "UiCarDisappear";
-    internal static string isDetected = "isDetected";
+    //internal static string isDetected? = "isDetected";
     #endregion
 
     #region Scene Strings
     internal static string Test = "Test";
+    internal static string SingleplayerLevel1 = "S_Level1";
+    internal static string SingleplayerLevel2 = "S_Level2";
+    internal static string SingleplayerLevel3 = "S_Level3";
+    internal static string SingleplayerLevel4 = "S_Level4";
     #endregion
 }

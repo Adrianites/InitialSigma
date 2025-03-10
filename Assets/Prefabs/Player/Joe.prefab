@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Intensity: 2.85
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 69cf9bbc65339d0a9d0bce9bf71db82b794d1d0d000000005d797c884f0f4ffb171fe761d9f7523e3b86df37f11efdafa70f473b770ab4677d12fbfc
+  m_ApplyToSortingLayers: 69cf9bbc65339d0a9d0bce9bf71db82b794d1d0d000000005d797c884f0f4ffb171fe761d9f7523e3b86df37f11efdafa70f473b770ab4677d12fbfc05e00d19
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -5337,7 +5337,7 @@ GameObject:
   - component: {fileID: 6612911164113827099}
   m_Layer: 0
   m_Name: Collider
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5364,7 +5364,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1344580895620205394}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -10971,8 +10971,8 @@ Camera:
   m_GameObject: {fileID: 3932180803729208918}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -11159,11 +11159,9 @@ GameObject:
   - component: {fileID: 7266680372332612293}
   - component: {fileID: 8697737710691338517}
   - component: {fileID: 2649088817465025537}
-  - component: {fileID: 69134156103229454}
-  - component: {fileID: 3769054879747398375}
-  - component: {fileID: 5175429127963473097}
+  - component: {fileID: 5650753288031401500}
   m_Layer: 0
-  m_Name: Car
+  m_Name: Joe
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11221,7 +11219,7 @@ MonoBehaviour:
   driftFactor: 0.3
   accelerationFactor: 30
   turnFactor: 3.5
-  maxSpeed: 70
+  maxSpeed: 80
   carSR: {fileID: 3389037818054293368}
   shadowSR: {fileID: 3561416483987363521}
   jumpCurve:
@@ -11275,7 +11273,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 4191138111929373087, guid: da9bbc3bd9308694baebe6f94c64a747, type: 3}
   firingPoint: {fileID: 1942138429669217177}
   firePoint: {fileID: 0}
-  fireRate: 1
+  fireRate: 0.3
 --- !u!50 &7081610658476719445
 Rigidbody2D:
   serializedVersion: 4
@@ -11348,6 +11346,8 @@ MonoBehaviour:
   positionText: {fileID: 7101136697465738001}
   carColour: {r: 1, g: 1, b: 1, a: 1}
   delayUntilHidePosition: 2
+  lapsCompleted: 0
+  lapsToComplete: 2
 --- !u!114 &8697737710691338517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11392,104 +11392,7 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 5368294536096406896}
---- !u!60 &69134156103229454
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4868855450411954962}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.26674163, y: 0.75874794}
-      - {x: 0.0304566, y: 0.8172603}
-      - {x: -0.24340531, y: 0.77514744}
-      - {x: -0.37999517, y: 0.5717052}
-      - {x: -0.38981724, y: -0.66054124}
-      - {x: -0.28157246, y: -0.8470879}
-      - {x: 0.30746123, y: -0.84526825}
-      - {x: 0.37458953, y: -0.66054094}
-      - {x: 0.38760832, y: 0.5678981}
-  m_UseDelaunayMesh: 0
---- !u!66 &3769054879747398375
-CompositeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4868855450411954962}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_GeometryType: 0
-  m_GenerationType: 0
-  m_EdgeRadius: 0
-  m_ColliderPaths: []
-  m_CompositePaths:
-    m_Paths: []
-  m_VertexDistance: 0.0005
-  m_OffsetDistance: 0.00005
-  m_UseDelaunayMesh: 0
-  m_CompositeGameObject: {fileID: 4868855450411954962}
---- !u!114 &5175429127963473097
+--- !u!114 &5650753288031401500
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -11503,6 +11406,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 100
+  uiManager: {fileID: 0}
 --- !u!1 &4883094921352686674
 GameObject:
   m_ObjectHideFlags: 0
@@ -11573,8 +11477,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 420339717
+  m_SortingLayer: 8
   m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 1, g: 0, b: 0.81985855, a: 1}
@@ -16660,8 +16564,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 420339717
+  m_SortingLayer: 8
   m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 0, b: 0.97938776, a: 1}
@@ -21615,8 +21519,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4755939686404004885}
   m_Layer: 0
-  m_Name: Player
-  m_TagString: Untagged
+  m_Name: Joe
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21897,7 +21801,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7736274351180640634}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.00000016455306, y: 0.00000046043715, z: -0.00000028756375, w: 1}
+  m_LocalRotation: {x: -0.00000016455304, y: 0.00000046053896, z: -0.00000028924998, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

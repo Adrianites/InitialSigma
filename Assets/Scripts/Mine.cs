@@ -11,23 +11,7 @@ public class Mine : MonoBehaviour
 
     public float damageAmount = 100f;
      
+
     PlayerStats playerStats;
     Animator animator;
-
-    void Awake()
-    {
-      anim = GetComponent<Animation>();   
-    }
-
-    void Start()
-    {
-        animator = GetComponent<Animator>();   
-    }
-
-    public void Detected(Collider2D collision)
-    {
-        if (playerStats.CompareTag("Player"))
-        animator.SetBool("Detected", true);
-    }
-
 }
