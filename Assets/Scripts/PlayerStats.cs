@@ -76,5 +76,16 @@ public class PlayerStats : MonoBehaviour
                 Object.Destroy(mine.gameObject);
             }
         }
+
+        else if (collision.CompareTag("Spike"))
+        {
+            Spike spike = collision.GetComponent<Spike>();
+            if (spike != null)
+            {
+                Debug.Log("Player entered SpikeRange: " + spike.gameObject.name);
+                DamageZoneTakeDamage(spike.damage);
+                Object.Destroy(spike.gameObject);
+            }
+        }
     }
 }
