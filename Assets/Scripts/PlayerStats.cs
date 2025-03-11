@@ -11,15 +11,45 @@ public class PlayerStats : MonoBehaviour
     public float currentHealth = 100;
 
     public UIManager uiManager;
+    public HealthBar healthBar;
 
     void Awake()
     {   
         currentHealth = maxHealth;
-        uiManager = FindObjectOfType<UIManager>();
-        Debug.Log("Player health initialized to: " + currentHealth);
+        uiManager
+                                                                                                                                                                                                                                           = FindObjectOfType<UIManager>();
+        //Debug.Log("Player health initialized to: " + currentHealth);
     }
 
-    public void DamageZoneTakeDamage(float damage)
+    void Start()
+    {
+        //currentHealth = maxHealth;
+        //Debug.Log("Player health initialized to: " + currentHealth);  
+        healthBar.SetMaxHealth(maxHealth); //error here
+    }
+
+    void Update()   //DELETE AFTER TESTING HEALTH
+    {
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            TakeDamage(50);
+        }
+    }
+
+   public void TakeDamage(float damage)
+    {
+        Debug.Log("Player takes damage: " + damage);
+        currentHealth -= damage;
+        healthBar.SetHealth(currentHealth); //error here
+        Debug.Log("Player current health: " + currentHealth);
+
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    } 
+
+   /* public void DamageZoneTakeDamage(float damage) //HAVE TO IMPROVE THIS 
     {
         Debug.Log("Player takes damage: " + damage);
         currentHealth -= damage;
@@ -28,7 +58,8 @@ public class PlayerStats : MonoBehaviour
         {
             Die();
         }
-    }
+    } */
+    
     public void MineTakeDamage(float damage)
     {
         Debug.Log("Player takes damage: " + damage);
@@ -59,7 +90,7 @@ public class PlayerStats : MonoBehaviour
             if (damageZone != null)
             {
                 Debug.Log("Player entered DamageZone: " + damageZone.gameObject.name);
-                DamageZoneTakeDamage(damageZone.damageAmount);
+                TakeDamage(damageZone.damageAmount); //change to damageZoneTakeDamage when fixed
             }
         }
         else if (collision.CompareTag("EndGame"))
@@ -74,6 +105,17 @@ public class PlayerStats : MonoBehaviour
                 Debug.Log("Player entered MineRange: " + mine.gameObject.name);
                 MineTakeDamage(mine.damageAmount);
                 Object.Destroy(mine.gameObject);
+            }
+        }
+
+        else if (collision.CompareTag("Spike"))
+        {
+            Spike spike = collision.GetComponent<Spike>();
+            if (spike != null)
+            {
+                Debug.Log("Player entered SpikeRange: " + spike.gameObject.name);
+                TakeDamage(spike.damage);
+                Object.Destroy(spike.gameObject);
             }
         }
     }
