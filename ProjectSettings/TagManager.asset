@@ -15,6 +15,7 @@ TagManager:
   - DamageZone
   - EndGame
   - Mine
+  - Spike
   layers:
   - Default
   - TransparentFX

@@ -11,15 +11,45 @@ public class PlayerStats : MonoBehaviour
     public float currentHealth = 100;
 
     public UIManager uiManager;
+    public HealthBar healthBar;
 
     void Awake()
     {   
         currentHealth = maxHealth;
         uiManager = FindObjectOfType<UIManager>();
-        Debug.Log("Player health initialized to: " + currentHealth);
+        //Debug.Log("Player health initialized to: " + currentHealth);
     }
 
-    public void DamageZoneTakeDamage(float damage)
+    void Start()
+    {
+        //currentHealth = maxHealth;
+        Debug.Log("Player health initialized to: " + currentHealth);
+
+        //healthBar.SetMaxHealth(maxHealth);
+    }
+
+    void Update()   //DELETE AFTER TESTING HEALTH
+    {
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            TakeDamage(50);
+        }
+    }
+
+   public void TakeDamage(float damage)
+    {
+        Debug.Log("Player takes damage: " + damage);
+        currentHealth -= damage;
+       // healthBar.SetHealth(currentHealth);
+        Debug.Log("Player current health: " + currentHealth);
+
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    } 
+
+   /* public void DamageZoneTakeDamage(float damage) //HAVE TO IMPROVE THIS 
     {
         Debug.Log("Player takes damage: " + damage);
         currentHealth -= damage;
@@ -28,7 +58,7 @@ public class PlayerStats : MonoBehaviour
         {
             Die();
         }
-    }
+    } */
     public void MineTakeDamage(float damage)
     {
         Debug.Log("Player takes damage: " + damage);
@@ -59,7 +89,7 @@ public class PlayerStats : MonoBehaviour
             if (damageZone != null)
             {
                 Debug.Log("Player entered DamageZone: " + damageZone.gameObject.name);
-                DamageZoneTakeDamage(damageZone.damageAmount);
+                TakeDamage(damageZone.damageAmount);
             }
         }
         else if (collision.CompareTag("EndGame"))
@@ -83,8 +113,7 @@ public class PlayerStats : MonoBehaviour
             if (spike != null)
             {
                 Debug.Log("Player entered SpikeRange: " + spike.gameObject.name);
-                DamageZoneTakeDamage(spike.damage);
-                
+                TakeDamage(spike.damage);
                 Object.Destroy(spike.gameObject);
             }
         }

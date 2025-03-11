@@ -20,7 +20,7 @@ public class Spike : MonoBehaviour
             playerStats = collision.GetComponent<PlayerStats>();
             if (playerStats != null)
             {
-                playerStats.DamageZoneTakeDamage(damage);
+                playerStats.TakeDamage(damage);
                 //playerStats.Knockback(knockback, knockbackDuration, knockbackHeight, knockbackSpeed);
             }
         }
