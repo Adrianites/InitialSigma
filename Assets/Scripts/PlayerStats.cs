@@ -16,16 +16,16 @@ public class PlayerStats : MonoBehaviour
     void Awake()
     {   
         currentHealth = maxHealth;
-        uiManager = FindObjectOfType<UIManager>();
+        uiManager
+                                                                                                                                                                                                                                           = FindObjectOfType<UIManager>();
         //Debug.Log("Player health initialized to: " + currentHealth);
     }
 
     void Start()
     {
         //currentHealth = maxHealth;
-        Debug.Log("Player health initialized to: " + currentHealth);
-
-        //healthBar.SetMaxHealth(maxHealth);
+        //Debug.Log("Player health initialized to: " + currentHealth);  
+        healthBar.SetMaxHealth(maxHealth); //error here
     }
 
     void Update()   //DELETE AFTER TESTING HEALTH
@@ -40,7 +40,7 @@ public class PlayerStats : MonoBehaviour
     {
         Debug.Log("Player takes damage: " + damage);
         currentHealth -= damage;
-       // healthBar.SetHealth(currentHealth);
+        healthBar.SetHealth(currentHealth); //error here
         Debug.Log("Player current health: " + currentHealth);
 
         if (currentHealth <= 0)
@@ -59,6 +59,7 @@ public class PlayerStats : MonoBehaviour
             Die();
         }
     } */
+    
     public void MineTakeDamage(float damage)
     {
         Debug.Log("Player takes damage: " + damage);
@@ -89,7 +90,7 @@ public class PlayerStats : MonoBehaviour
             if (damageZone != null)
             {
                 Debug.Log("Player entered DamageZone: " + damageZone.gameObject.name);
-                TakeDamage(damageZone.damageAmount);
+                TakeDamage(damageZone.damageAmount); //change to damageZoneTakeDamage when fixed
             }
         }
         else if (collision.CompareTag("EndGame"))
