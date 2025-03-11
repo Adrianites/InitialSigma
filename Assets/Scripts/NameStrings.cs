@@ -13,7 +13,7 @@ internal class NameStrings
     #endregion
 
     #region Scene Strings
-    internal static string Test = "Test";
+    internal static string MultiplayerLevel1 = "M_Level1";
     internal static string SingleplayerLevel1 = "S_Level1";
     internal static string SingleplayerLevel2 = "S_Level2";
     internal static string SingleplayerLevel3 = "S_Level3";

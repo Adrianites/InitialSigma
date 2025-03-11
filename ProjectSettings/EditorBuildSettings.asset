@@ -21,7 +21,7 @@ EditorBuildSettings:
     path: Assets/Scenes/S_Level4.unity
     guid: 17b8eef1e8ac7b64b90ea89d6f0b04da
   - enabled: 1
-    path: Assets/Scenes/Test.unity
+    path: Assets/Scenes/M_Level1.unity
     guid: a4bf8e7d993b8394b8183a8747bf3bde
   - enabled: 1
     path: Assets/Scenes/QuitScene.unity

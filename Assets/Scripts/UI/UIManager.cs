@@ -34,9 +34,14 @@ public class UIManager : MonoBehaviour
     #endregion
 
     #region Select Car
-    public void SelectCar()
+    public void SelectCarMultiplayer()
     {
-        SceneManager.LoadScene("Test");
+        SceneManager.LoadScene("M_Level1");
+    }
+
+    public void SelectCarSingleplayer()
+    {
+        SceneManager.LoadScene("S_Level1");
     }
     #endregion
     

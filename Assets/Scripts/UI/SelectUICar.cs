@@ -86,7 +86,7 @@ public class SelectUICar : MonoBehaviour
         PlayerPrefs.Save();
 
         // Load the next scene or do something else after selecting the car
-        SceneManager.LoadScene(NameStrings.Test);
+        SceneManager.LoadScene(NameStrings.MultiplayerLevel1);
     }
     #endregion
 
