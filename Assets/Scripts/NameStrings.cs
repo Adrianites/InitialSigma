@@ -13,6 +13,8 @@ internal class NameStrings
     #endregion
 
     #region Scene Strings
+    internal static string MainMenu = "MainMenu";
+    internal static string Quit = "QuitScene";
     internal static string MultiplayerLevel1 = "M_Level1";
     internal static string SingleplayerLevel1 = "S_Level1";
     internal static string SingleplayerLevel2 = "S_Level2";

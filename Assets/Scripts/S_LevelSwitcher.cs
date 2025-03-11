@@ -29,19 +29,19 @@ public class S_LevelSwitcher : MonoBehaviour
         switch(scene)
         {
             case Scene.MainMenu:
-                SceneManager.LoadScene("MainMenu");
+                SceneManager.LoadScene(NameStrings.MainMenu);
                 break;
             case Scene.Scene1:
-                SceneManager.LoadScene("S_Level1");
+                SceneManager.LoadScene(NameStrings.SingleplayerLevel1);
                 break;
             case Scene.Scene2:
-                SceneManager.LoadScene("S_Level2");
+                SceneManager.LoadScene(NameStrings.SingleplayerLevel2);
                 break;
             case Scene.Scene3:
-                SceneManager.LoadScene("S_Level3");
+                SceneManager.LoadScene(NameStrings.SingleplayerLevel3);
                 break;
             case Scene.Scene4:
-                SceneManager.LoadScene("S_Level4");
+                SceneManager.LoadScene(NameStrings.SingleplayerLevel4);
                 break;
 
 

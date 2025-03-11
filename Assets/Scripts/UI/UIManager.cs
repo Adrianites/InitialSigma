@@ -36,19 +36,19 @@ public class UIManager : MonoBehaviour
     #region Select Car
     public void SelectCarMultiplayer()
     {
-        SceneManager.LoadScene("M_Level1");
+        SceneManager.LoadScene(NameStrings.MultiplayerLevel1);
     }
 
     public void SelectCarSingleplayer()
     {
-        SceneManager.LoadScene("S_Level1");
+        SceneManager.LoadScene(NameStrings.SingleplayerLevel1);
     }
     #endregion
     
     #region Start
     private void Start()
     {
-        if (SceneManager.GetActiveScene().name == "MainMenu")
+        if (SceneManager.GetActiveScene().name == NameStrings.MainMenu)
         {
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.Confined;
@@ -160,7 +160,7 @@ public class UIManager : MonoBehaviour
     #region MainMenu
     public void MainMenu()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene(NameStrings.MainMenu);
         Time.timeScale = 1;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
@@ -179,7 +179,7 @@ public class UIManager : MonoBehaviour
             #elif (UNITY_STANDALONE)
                 Application.Quit();
             #elif (UNITY_WEBGL)
-                SceneManager.LoadScene("QuitScene");
+                SceneManager.LoadScene(NameStrings.Quit);
             #endif
     }
     #endregion
