@@ -218,4 +218,11 @@ public class UIManager : MonoBehaviour
         playerData.player4Joined = player4Toggle.isOn;
     }
     #endregion
+
+    #region SocialPlug
+    public void OpenLink(string url)
+    {
+        Application.OpenURL(url);
+    }
+    #endregion
 }
