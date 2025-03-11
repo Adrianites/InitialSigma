@@ -16,8 +16,7 @@ public class PlayerStats : MonoBehaviour
     void Awake()
     {   
         currentHealth = maxHealth;
-        uiManager
-                                                                                                                                                                                                                                           = FindObjectOfType<UIManager>();
+        uiManager = FindObjectOfType<UIManager>();
         //Debug.Log("Player health initialized to: " + currentHealth);
     }
 
