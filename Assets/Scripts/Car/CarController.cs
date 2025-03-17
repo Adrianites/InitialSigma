@@ -59,6 +59,13 @@ public class CarController : MonoBehaviour
     }
     #endregion
 
+    #region Start
+    void Start()
+    {
+        rotationAngle = transform.rotation.eulerAngles.z;
+    }
+    #endregion
+    
     //TODO move into different script
 
     public void OnButton()
