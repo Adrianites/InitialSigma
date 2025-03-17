@@ -25,7 +25,7 @@ public class PlayerStats : MonoBehaviour
     {
         //currentHealth = maxHealth;
         //Debug.Log("Player health initialized to: " + currentHealth);  
-        healthBar.SetMaxHealth(maxHealth); //error here
+        //healthBar.SetMaxHealth(maxHealth); //error here
     }
 
     void Update()   //DELETE AFTER TESTING HEALTH
@@ -40,7 +40,7 @@ public class PlayerStats : MonoBehaviour
     {
         Debug.Log("Player takes damage: " + damage);
         currentHealth -= damage;
-        healthBar.SetHealth(currentHealth); //error here
+        //healthBar.SetHealth(currentHealth); //error here
         Debug.Log("Player current health: " + currentHealth);
 
         if (currentHealth <= 0)
