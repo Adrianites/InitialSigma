@@ -4,30 +4,38 @@ using UnityEngine;
 
 public class Turret : MonoBehaviour
 {
-    public float rotationSpeed = 5f; // Speed at which the turret rotates
-    private Transform player; // Reference to the player's transform
+    public float rotationSpeed = 5f;
+    public Transform player; 
 
-    void Start()
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            Debug.Log("Player detected by turret.");
+            player = collision.transform;
+        }
+
+    }
+    void OnTriggerEnter2D()
     {
         Debug.Log("Turret Start method called.");
         
-        // Find the player GameObject by tag
+        //find the player GameObject by tag
         GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
         if (playerObject != null)
         {
-            player = playerObject.transform; // Assign the player's transform
+            player = playerObject.transform; //assign the players transform
             Debug.Log("Player found: " + playerObject.name);
         }
         else
         {
-            Debug.LogWarning("Player not found!");
+            Debug.Log("Player not found!");
         }
     }
-
-    void Update()
+    void FixedUpdate()
     {
-        //Debug.Log("Turret Update method called.");
-        
+        Debug.Log("Turret Update method called.");
+        Debug.Log($"player {player}");
         if (player != null)
         {
             //calculating the direction
@@ -35,7 +43,7 @@ public class Turret : MonoBehaviour
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
             //smooth rotation
-            Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, angle - 90)); // Adjust for sprite rotation
+            Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, angle - 90)); //adjust for sprite rotation
             transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
             Debug.Log("Turret rotating towards player. Angle: " + angle);
             Debug.Log("Current Rotation: " + transform.rotation.eulerAngles);
@@ -44,6 +52,15 @@ public class Turret : MonoBehaviour
         else
         {
             Debug.LogWarning("Player reference is null.");
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            Debug.Log("Player exited turret range.");
+            player = null;
         }
     }
 }
