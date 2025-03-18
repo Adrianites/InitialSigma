@@ -34,7 +34,7 @@ public class Turret : MonoBehaviour
     }
     void FixedUpdate()
     {
-        Debug.Log("Turret Update method called.");
+        //sDebug.Log("Turret Update method called.");
         Debug.Log($"player {player}");
         if (player != null)
         {
@@ -49,10 +49,10 @@ public class Turret : MonoBehaviour
             Debug.Log("Current Rotation: " + transform.rotation.eulerAngles);
             Debug.Log("Target Rotation: " + targetRotation.eulerAngles);
         }
-        else
+        /*else
         {
             Debug.LogWarning("Player reference is null.");
-        }
+        } */
     }
 
     void OnTriggerExit2D(Collider2D collision)
