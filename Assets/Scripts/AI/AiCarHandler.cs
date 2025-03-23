@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using System.IO;
+using System;
 
 public class AiCarHandler : MonoBehaviour
 {
@@ -10,23 +12,27 @@ public class AiCarHandler : MonoBehaviour
     public AiState aiState;
     public float maxSpeed = 70;
     public bool isAvoidingCars = true;
+    [Range(0f, 1f)]
+    public float skillLevel = 1f;
 
     // local
     Vector3 targetPosition = Vector3.zero;
+    float originalMaxSpeed = 0;
     Transform targetTransform = null;
     PathNode currentPathNode = null;
+    PathNode previousPathNode = null;
     PathNode[] allPathNodes;
 
     Vector2 avoidanceVectorLerped = Vector3.zero;
 
     // components
     CarController carController;
-    PolygonCollider2D polygonCollider2D;
+    public PolygonCollider2D carCheckerCollider;
 
     [Header("Adjustments")]
     float steerAmountValue = 45.0f;
-    float carInFrontOfAiCircleCastValue = 1.2f;
-    float AvoidanceLerpedValue = 4f; // higher the value = jitters more but more responsive
+    float carInFrontOfAiCircleCastValue = 1.5f;
+    float AvoidanceLerpedValue = 3f; // higher the value = jitters more but more responsive
     #endregion
 
     #region Awake
@@ -34,7 +40,14 @@ public class AiCarHandler : MonoBehaviour
     {
         carController = GetComponent<CarController>();
         allPathNodes = FindObjectsOfType<PathNode>();
-        polygonCollider2D = GetComponentInChildren<PolygonCollider2D>();
+        originalMaxSpeed = maxSpeed;
+    }
+    #endregion
+
+    #region Start
+    void Start()
+    {
+        SetMaxSpeedBasedOnSkillLevel(maxSpeed);
     }
     #endregion
 
@@ -102,26 +115,39 @@ public class AiCarHandler : MonoBehaviour
         if (currentPathNode == null)
         {
             currentPathNode = FindClosestPathNode();
+            previousPathNode = currentPathNode;
         }
 
         if (currentPathNode != null)
         {
             targetPosition = currentPathNode.transform.position;
 
-            float ditanceToPathNode = (targetPosition - transform.position).magnitude;
+            float distanceToPathNode = (targetPosition - transform.position).magnitude;
+
+            if (distanceToPathNode > 20)
+            {
+                Vector3 closestPointOnLine = FindClosestPointOnLine(previousPathNode.transform.position, currentPathNode.transform.position, transform.position);
+
+                float segments = distanceToPathNode / 20.0f;
+                targetPosition = (targetPosition + closestPointOnLine * segments) / (segments + 1);
+
+                Debug.DrawLine(transform.position, targetPosition, Color.blue);
+            }
             
-            if (ditanceToPathNode <= currentPathNode.minDistanceToReachNode)
+            if (distanceToPathNode <= currentPathNode.minDistanceToReachNode)
             {   
                 if (currentPathNode.aiMaxSpeed > 0)
                 {
-                    maxSpeed = currentPathNode.aiMaxSpeed;
+                    SetMaxSpeedBasedOnSkillLevel(currentPathNode.aiMaxSpeed);
                 }
                 else
                 {
-                    maxSpeed = 1000;
+                    SetMaxSpeedBasedOnSkillLevel(1000);
                 }
 
-                currentPathNode = currentPathNode.nextPathNode[Random.Range(0, currentPathNode.nextPathNode.Length)];
+                previousPathNode = currentPathNode;
+
+                currentPathNode = currentPathNode.nextPathNode[UnityEngine.Random.Range(0, currentPathNode.nextPathNode.Length)];
             }
         }
     }
@@ -136,6 +162,16 @@ public class AiCarHandler : MonoBehaviour
     }
     #endregion
 
+    #region Set Max Speed Based On Skill Level
+    public void SetMaxSpeedBasedOnSkillLevel(float newSpeed)
+    {
+        maxSpeed = Mathf.Clamp(newSpeed, 0, originalMaxSpeed);
+
+        float skillBasedMaxSpeed = Mathf.Clamp(skillLevel, 0.3f, 1.0f);
+        maxSpeed = maxSpeed * skillBasedMaxSpeed;
+    }
+    #endregion
+
     #region Speed Up Or Slow Down
     float SpeedUpOrSlowDown(float inputX)
     {
@@ -143,20 +179,41 @@ public class AiCarHandler : MonoBehaviour
         {
             return 0f;
         }
-        return 1.05f - Mathf.Abs(inputX) / 1.0f;
+
+        float reduceSpeedDueToCorner = Mathf.Abs(inputX) / 1f;
+
+        return 1.05f - reduceSpeedDueToCorner * skillLevel;
+    }
+    #endregion
+
+    #region Find Closest Point On Line
+    Vector2 FindClosestPointOnLine(Vector2 lineStartPos, Vector2 lineEndPos, Vector2 point)
+    {
+        Vector2 lineHeadingVector = (lineEndPos - lineStartPos);
+
+        float maxDist = lineHeadingVector.magnitude;
+        lineHeadingVector.Normalize();
+
+        Vector2 lineVectorStartPoint = point - lineStartPos;
+        float dotProduct = Vector2.Dot(lineVectorStartPoint, lineHeadingVector);
+
+        dotProduct = Mathf.Clamp(dotProduct, 0f, maxDist);
+
+        return lineStartPos + lineHeadingVector * dotProduct;
     }
     #endregion
 
     #region Car in front of AI car bool
     bool CarInFrontOfAiCar(out Vector3 position, out Vector3 otherCarRightVector)
     {
-        polygonCollider2D.enabled = false;
-        RaycastHit2D raycastHit2D = Physics2D.CircleCast(transform.position + transform.up * 0.5f, carInFrontOfAiCircleCastValue, transform.up, 12, 1 << LayerMask.NameToLayer("Car"));
-        polygonCollider2D.enabled = true;
+        carCheckerCollider.enabled = false;
+        RaycastHit2D raycastHit2D = Physics2D.CircleCast(transform.position + transform.up * 0.5f, carInFrontOfAiCircleCastValue, transform.up, 30, 1 << LayerMask.NameToLayer("Car"));
+        Debug.Log(raycastHit2D.collider);
+        carCheckerCollider.enabled = true;
 
         if (raycastHit2D.collider != null)
         {
-            Debug.DrawRay(transform.position, transform.up * 12, Color.red);
+            Debug.DrawRay(transform.position, transform.up * 30, Color.red);
 
             position = raycastHit2D.collider.transform.position;
             otherCarRightVector = raycastHit2D.collider.transform.right;
@@ -164,7 +221,7 @@ public class AiCarHandler : MonoBehaviour
         }
         else
         {
-            Debug.DrawRay(transform.position, transform.up * 12, Color.black);
+            Debug.DrawRay(transform.position, transform.up * 30, Color.black);
         }
 
         position = Vector3.zero;
@@ -194,8 +251,8 @@ public class AiCarHandler : MonoBehaviour
             newVectorToTarget = vectorToTarget * driveToTargetInfluence + avoidanceVectorLerped * avoidanceInfluence;
             newVectorToTarget.Normalize();
 
-            Debug.DrawRay(transform.position, avoidanceVector * 10, Color.green);
-            Debug.DrawRay(transform.position, newVectorToTarget * 10, Color.yellow);
+            Debug.DrawRay(transform.position, avoidanceVector * 30, Color.green);
+            Debug.DrawRay(transform.position, newVectorToTarget * 30, Color.yellow);
             return;
         }
 

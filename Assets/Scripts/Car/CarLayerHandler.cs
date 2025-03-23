@@ -9,7 +9,7 @@ public class CarLayerHandler : MonoBehaviour
     List<SpriteRenderer> defaultLayerSR = new List<SpriteRenderer>();
     List<Collider2D> BridgeColliderList = new List<Collider2D>();
     List<Collider2D> TunnelColliderList = new List<Collider2D>();
-    Collider2D carCollider;
+    public Collider2D carCollider;
     bool isDrivingOnBridge = false;
     #endregion
 
@@ -33,8 +33,6 @@ public class CarLayerHandler : MonoBehaviour
         {
             TunnelColliderList.Add(tunnelColliderGO.GetComponent<Collider2D>());
         }
-
-        carCollider = GetComponentInChildren<Collider2D>();
 
         carCollider.gameObject.layer = LayerMask.NameToLayer("ObjectInTunnel");
     }

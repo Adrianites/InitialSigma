@@ -27,13 +27,6 @@ public class CarController : MonoBehaviour
     public float JumpShadowDisValue = 3.0f;
     public float PushForwardJumpValue = 10.0f;
     public float LandingCheckCircleSize = 1.5f;
-
-    [Header("Gun")]
-    [SerializeField] private GameObject bulletPrefab;
-    [SerializeField] private GameObject firingPoint;
-    [SerializeField] private Transform firePoint;
-    [Range(0.1f, 1f)]
-    [SerializeField] private float fireRate = 0.5f;
     
     private float fireTimer;
 
@@ -46,15 +39,22 @@ public class CarController : MonoBehaviour
 
     // components
     Rigidbody2D rb;
-    Collider2D carCollider;
+    public Collider2D carCollider;
+    public Collider2D carCheckerCollider;
     CarSFX carSFX;
+
+    [Header("Gun")]
+    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private GameObject firingPoint;
+    [SerializeField] private Transform firePoint;
+    [Range(0.1f, 1f)]
+    [SerializeField] private float fireRate = 0.5f;
     #endregion
 
     #region Awake
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        carCollider = GetComponentInChildren<Collider2D>();
         carSFX = GetComponent<CarSFX>();
     }
     #endregion
@@ -273,7 +273,7 @@ public class CarController : MonoBehaviour
             yield return null;
         }
         
-        if(Physics2D.OverlapCircle(transform.position, LandingCheckCircleSize))
+        if(Physics2D.OverlapCircle(transform.position, LandingCheckCircleSize) != carCheckerCollider)
         {
             isJumping = false;
             Jump(0.2f, 0.6f);
@@ -294,7 +294,6 @@ public class CarController : MonoBehaviour
             {
                 landingPS.Play();
                 carSFX.PlayLandingSFX();
-
             }
 
             isJumping = false;

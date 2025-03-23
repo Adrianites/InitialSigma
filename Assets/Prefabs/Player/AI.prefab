@@ -11031,7 +11031,7 @@ GameObject:
   - component: {fileID: 199165945803345024}
   - component: {fileID: 7150221630248143555}
   - component: {fileID: 6987554783540883615}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: AI
   m_TagString: AI
   m_Icon: {fileID: 0}
@@ -11048,13 +11048,14 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -45.17, y: 665.54, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 0}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 0}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5233658695330360415}
   - {fileID: 5264922065026579923}
   - {fileID: 5556252145835142261}
   - {fileID: 182785236258648939}
+  - {fileID: 2155174397873162925}
   - {fileID: 3115741590728891927}
   - {fileID: 2823648898941992786}
   - {fileID: 4647732506411071138}
@@ -11076,7 +11077,7 @@ MonoBehaviour:
   driftFactor: 0.3
   accelerationFactor: 30
   turnFactor: 3.5
-  maxSpeed: 80
+  maxSpeed: 60
   carSR: {fileID: 5555877852438141980}
   shadowSR: {fileID: 3063804234683735760}
   jumpCurve:
@@ -11127,6 +11128,8 @@ MonoBehaviour:
   JumpShadowDisValue: 3
   PushForwardJumpValue: 10
   LandingCheckCircleSize: 1.5
+  carCollider: {fileID: 3330070991015346778}
+  carCheckerCollider: {fileID: 4736005226280206699}
   bulletPrefab: {fileID: 4191138111929373087, guid: da9bbc3bd9308694baebe6f94c64a747, type: 3}
   firingPoint: {fileID: 5668654098059738748}
   firePoint: {fileID: 0}
@@ -11188,6 +11191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   carOutlineSR: {fileID: 145229765440651521}
+  carCollider: {fileID: 3330070991015346778}
 --- !u!114 &199165945803345024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11233,9 +11237,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3710650a766617b40829c406e08ddffa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aiState: 0
+  aiState: 1
   maxSpeed: 70
   isAvoidingCars: 1
+  skillLevel: 1
+  carCheckerCollider: {fileID: 4736005226280206699}
 --- !u!1 &3772579337964376813
 GameObject:
   m_ObjectHideFlags: 0
@@ -16504,6 +16510,96 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5264922065026579923}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5910340764956456722
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2155174397873162925}
+  - component: {fileID: 4736005226280206699}
+  m_Layer: 12
+  m_Name: CarChecker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2155174397873162925
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5910340764956456722}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5425728476142331521}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &4736005226280206699
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5910340764956456722}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 2}
+    newSize: {x: 1, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.4325935, y: 0.02323255}
+      - {x: 0.43104985, y: 0.7750472}
+      - {x: 0.23310019, y: 0.98395085}
+      - {x: -0.19663432, y: 0.9834481}
+      - {x: -0.42504644, y: 0.78134453}
+      - {x: -0.4354698, y: 0.3344544}
+      - {x: -0.43890247, y: -0.75003266}
+      - {x: -0.34241885, y: -0.90590906}
+      - {x: -0.23204534, y: -0.9864828}
+      - {x: 0.23918244, y: -0.9846495}
+      - {x: 0.36366543, y: -0.8981765}
+      - {x: 0.4009323, y: -0.8557636}
+      - {x: 0.43492433, y: -0.7419558}
+  m_UseDelaunayMesh: 0
 --- !u!1 &6624454355115574652
 GameObject:
   m_ObjectHideFlags: 0
@@ -26594,8 +26690,8 @@ GameObject:
   m_Component:
   - component: {fileID: 182785236258648939}
   - component: {fileID: 3330070991015346778}
-  m_Layer: 12
-  m_Name: Collider
+  m_Layer: 0
+  m_Name: CarCollider
   m_TagString: AI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
