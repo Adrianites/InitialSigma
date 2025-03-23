@@ -38,7 +38,7 @@ public class SpikeTrap : MonoBehaviour
         {
             //instantiate spike at each spawn point
             GameObject spike = Instantiate(spikePrefab, spawnPoint.position, spawnPoint.rotation);
-            Destroy(spike, spikeLifetime); // Destroy the spike after its lifetime
+            Destroy(spike, spikeLifetime); 
         }
 
         //deal damage to player if they are in range
