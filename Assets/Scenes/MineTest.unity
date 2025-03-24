@@ -1010,7 +1010,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageAmount: 10
-  damageInterval: 1
 --- !u!61 &241501451
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -77797,10 +77796,6 @@ PrefabInstance:
     - target: {fileID: 3667945310146397083, guid: 176f2003b06e3374daf353fe2fdb1d63, type: 3}
       propertyPath: rotationSpeed
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6141369194971544134, guid: 176f2003b06e3374daf353fe2fdb1d63, type: 3}
-      propertyPath: firingPoint
-      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7022695196757531720, guid: 176f2003b06e3374daf353fe2fdb1d63, type: 3}
       propertyPath: m_LocalPosition.x

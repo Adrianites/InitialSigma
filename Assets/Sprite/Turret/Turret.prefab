@@ -203,6 +203,7 @@ MonoBehaviour:
   firingPoint: {fileID: 8519325090301786613}
   firePoint: {fileID: 0}
   fireRate: 0.5
+  inZone: 0
 --- !u!58 &6748043910576222331
 CircleCollider2D:
   m_ObjectHideFlags: 0
