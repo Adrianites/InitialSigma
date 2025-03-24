@@ -264,6 +264,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 127130289484876125, guid: cf8103bcd6d32a34c879db077778bde8, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: f3d6629d05568484c912342069a08e43, type: 3}
     - target: {fileID: 986788245206956523, guid: cf8103bcd6d32a34c879db077778bde8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -45415,6 +45419,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AI
       objectReference: {fileID: 0}
+    - target: {fileID: 3696051564507936099, guid: 6e54304aa85827141b62477cb20bd8a5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5425728476142331521, guid: 6e54304aa85827141b62477cb20bd8a5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -196.95294
@@ -45457,7 +45465,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6987554783540883615, guid: 6e54304aa85827141b62477cb20bd8a5, type: 3}
       propertyPath: skillLevel
-      value: 1
+      value: 0.073
       objectReference: {fileID: 0}
     - target: {fileID: 6987554783540883615, guid: 6e54304aa85827141b62477cb20bd8a5, type: 3}
       propertyPath: allPathNodes.Array.size
