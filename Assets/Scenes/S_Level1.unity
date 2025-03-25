@@ -328,10 +328,6 @@ PrefabInstance:
       propertyPath: orthographic size
       value: 40
       objectReference: {fileID: 0}
-    - target: {fileID: 6559113949951435189, guid: cf8103bcd6d32a34c879db077778bde8, type: 3}
-      propertyPath: fireRate
-      value: 0.4
-      objectReference: {fileID: 0}
     - target: {fileID: 7255120281834117156, guid: cf8103bcd6d32a34c879db077778bde8, type: 3}
       propertyPath: m_Name
       value: Joe
