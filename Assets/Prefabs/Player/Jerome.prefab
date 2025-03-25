@@ -172,6 +172,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Jerome
       objectReference: {fileID: 0}
+    - target: {fileID: 7255120281834117156, guid: cf8103bcd6d32a34c879db077778bde8, type: 3}
+      propertyPath: m_TagString
+      value: AI
+      objectReference: {fileID: 0}
+    - target: {fileID: 9123890902474219958, guid: cf8103bcd6d32a34c879db077778bde8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.99999976
+      objectReference: {fileID: 0}
+    - target: {fileID: 9123890902474219958, guid: cf8103bcd6d32a34c879db077778bde8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.00021702317
+      objectReference: {fileID: 0}
+    - target: {fileID: 9123890902474219958, guid: cf8103bcd6d32a34c879db077778bde8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.0006075708
+      objectReference: {fileID: 0}
+    - target: {fileID: 9123890902474219958, guid: cf8103bcd6d32a34c879db077778bde8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.00038151705
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

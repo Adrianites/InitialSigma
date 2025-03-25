@@ -11029,7 +11029,6 @@ GameObject:
   - component: {fileID: 5443009434010187106}
   - component: {fileID: 7485678824993792179}
   - component: {fileID: 199165945803345024}
-  - component: {fileID: 7150221630248143555}
   - component: {fileID: 6987554783540883615}
   m_Layer: 0
   m_Name: AI
@@ -11209,22 +11208,6 @@ MonoBehaviour:
   delayUntilHidePosition: 2
   lapsCompleted: 0
   lapsToComplete: 2
---- !u!114 &7150221630248143555
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3696051564507936099}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cb8531753b278c41bb4b2d38a6573e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 100
-  uiManager: {fileID: 0}
-  healthBar: {fileID: 0}
 --- !u!114 &6987554783540883615
 MonoBehaviour:
   m_ObjectHideFlags: 0
