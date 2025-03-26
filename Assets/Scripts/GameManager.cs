@@ -1,30 +1,77 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
+#region GameState Enumeration
+public enum GameState
+{
+    Countdown,
+    Running,
+    RaceOver,
+}
+#endregion
 
 public class GameManager : MonoBehaviour
 {
-
-    public static GameManager instance;
+    #region Variables
+    GameState gameState = GameState.Countdown;
+    public static GameManager instance = null;
 
     public PlayerStats playerStats;
+    #endregion
 
+    #region Awake
     public void Awake()
     {
         if (instance == null)
         {
             instance = this;
         }
-        else
+        else if (instance != this)
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
+            return;
         }
-        DontDestroyOnLoad(this.gameObject);
+
+        DontDestroyOnLoad(gameObject);
     }
+    #endregion
 
-    //health
- 
+    #region Level Start
+    void LevelStart()
+    {
+        gameState = GameState.Countdown;
+        Debug.Log("Level Start");
+    }
+    #endregion
 
-    
+    #region Letting other scripts use GameState
+    public GameState GetGameState()
+    {
+        return gameState;
+    }
+    #endregion
 
+    #region On Race Start
+    public void OnRaceStart()
+    {
+        gameState = GameState.Running;
+        Debug.Log("Race Start");
+    }
+    #endregion
+
+    #region OnEnabled
+    private void OnEnabled()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+    #endregion
+
+    #region On Scene Loaded
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        LevelStart();
+    }
+    #endregion
 }

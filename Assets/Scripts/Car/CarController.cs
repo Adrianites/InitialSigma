@@ -104,6 +104,10 @@ public class CarController : MonoBehaviour
     #region Fixed Update
     void FixedUpdate()
     {
+        if (GameManager.instance.GetGameState() == GameState.Countdown)
+        {
+            return;
+        }
         ApplyEngineForce();
 
         KillOrthogonalVelocity();

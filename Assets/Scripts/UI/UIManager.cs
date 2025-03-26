@@ -14,13 +14,14 @@ public class UIManager : MonoBehaviour
     GameObject deathCanvas = null;
     GameObject inGameCanvas = null;
     GameObject winCanvas = null;
+    GameObject pauseCanvas = null;
     public PlayerManager playerManager;
     public PlayerData playerData;
     public LevelData levelData;
     public Toggle player2Toggle;
     public Toggle player3Toggle;
     public Toggle player4Toggle;
-    public TMP_Text CountdownText;
+    public TMP_Text CountdownText = null;
     #endregion
 
     #region Awake
@@ -29,25 +30,18 @@ public class UIManager : MonoBehaviour
         deathCanvas = GameObject.Find("DeathCanvas");
         inGameCanvas = GameObject.Find("InGameCanvas");
         winCanvas = GameObject.Find("WinCanvas");
+        pauseCanvas = GameObject.Find("PauseCanvas");
         playerManager = GameObject.FindObjectOfType<PlayerManager>();
         playerData = Resources.Load<PlayerData>("PlayerData");
         levelData = Resources.Load<LevelData>("LevelData");
-        CountdownText = GameObject.Find("CountdownText").GetComponent<TMP_Text>();
+        if (CountdownText != null)
+        {
+            CountdownText.text = "";
+        }
+
     }
     #endregion
 
-    #region Select Car
-    public void SelectCarMultiplayer()
-    {
-        SceneManager.LoadScene(NameStrings.MultiplayerLevel1);
-    }
-
-    public void SelectCarSingleplayer()
-    {
-        SceneManager.LoadScene(NameStrings.SingleplayerLevel1);
-    }
-    #endregion
-    
     #region Start
     private void Start()
     {
@@ -58,6 +52,7 @@ public class UIManager : MonoBehaviour
         }
         else
         {
+            StartCoroutine(CountdownCO());
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
         
@@ -73,6 +68,10 @@ public class UIManager : MonoBehaviour
             if (winCanvas != null)
             {
                 winCanvas.SetActive(false);
+            }
+            if (pauseCanvas != null)
+            {
+                pauseCanvas.SetActive(false);
             }
         }
 
@@ -94,6 +93,44 @@ public class UIManager : MonoBehaviour
     }
     #endregion
 
+    #region Countdown Coroutine
+    IEnumerator CountdownCO()
+    {
+        yield return new WaitForSeconds(0.3f);
+        int count = 3;
+
+        while (true)
+        {
+            if (count !=0)
+            {
+                CountdownText.text = count.ToString();
+            }
+            else
+            {
+                CountdownText.text = "G!";
+                GameManager.instance.OnRaceStart();
+                break;
+            }
+            count--;
+            yield return new WaitForSeconds(1);
+        }
+        yield return new WaitForSeconds(1);
+        CountdownText.text = "";
+    }
+    #endregion
+
+    #region Select Car
+    public void SelectCarMultiplayer()
+    {
+        SceneManager.LoadScene(NameStrings.MultiplayerLevel1);
+    }
+
+    public void SelectCarSingleplayer()
+    {
+        SceneManager.LoadScene(NameStrings.SingleplayerLevel1);
+    }
+    #endregion
+
     #region Restart Level
     public void RestartLevel()
     {
@@ -108,12 +145,17 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 0;
         if(deathCanvas != null)
         {
-            deathCanvas.SetActive(true);
+            deathCanvas.SetActive(false);
         }
         
         if(inGameCanvas != null)
         {
             inGameCanvas.SetActive(false);
+        }
+
+        if(pauseCanvas != null)
+        {
+            pauseCanvas.SetActive(true);
         }
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
@@ -155,6 +197,12 @@ public class UIManager : MonoBehaviour
         {
             inGameCanvas.SetActive(true);
         }
+
+        if (pauseCanvas != null)
+        {
+            pauseCanvas.SetActive(false);
+        }
+
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
