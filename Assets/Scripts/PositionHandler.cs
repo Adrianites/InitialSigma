@@ -30,7 +30,10 @@ public class PositionHandler : MonoBehaviour
     #region Start
     void Start()
     {
-        leaderboardUIHandler.UpdateList(lapCounters);
+        if (leaderboardUIHandler != null)
+        {
+            leaderboardUIHandler.UpdateList(lapCounters);
+        }
     }
     #endregion
 

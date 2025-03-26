@@ -8915,6 +8915,10 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1593792800252919885, guid: 488bb4c604d1dd3408b3b8fc51aa20fb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1955546528865611843, guid: 488bb4c604d1dd3408b3b8fc51aa20fb, type: 3}
       propertyPath: m_text
       value: Kaboom

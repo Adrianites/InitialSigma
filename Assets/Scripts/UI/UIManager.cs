@@ -6,6 +6,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class UIManager : MonoBehaviour
     public Toggle player2Toggle;
     public Toggle player3Toggle;
     public Toggle player4Toggle;
+    public TMP_Text CountdownText;
     #endregion
 
     #region Awake
@@ -30,6 +32,7 @@ public class UIManager : MonoBehaviour
         playerManager = GameObject.FindObjectOfType<PlayerManager>();
         playerData = Resources.Load<PlayerData>("PlayerData");
         levelData = Resources.Load<LevelData>("LevelData");
+        CountdownText = GameObject.Find("CountdownText").GetComponent<TMP_Text>();
     }
     #endregion
 
