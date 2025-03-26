@@ -43,12 +43,13 @@ public class CarController : MonoBehaviour
     public Collider2D carCheckerCollider;
     CarSFX carSFX;
 
+    /*GET RID OFF AFTER TESTING
     [Header("Gun")]
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private GameObject firingPoint;
     [SerializeField] private Transform firePoint;
     [Range(0.1f, 1f)]
-    [SerializeField] private float fireRate = 0.5f;
+    [SerializeField] private float fireRate = 0.5f;*/
     #endregion
 
     #region Awake
@@ -68,7 +69,7 @@ public class CarController : MonoBehaviour
     
     //TODO move into different script
 
-    public void OnButton()
+    /*public void OnButton()
     {
         if (fireTimer <= 0f)
         {
@@ -80,9 +81,9 @@ public class CarController : MonoBehaviour
             fireTimer -= Time.deltaTime;
         }
         Debug.Log("Fire");
-    }
+    } */
 
-    void Update()
+    /*void Update()
     {
         if (Input.GetKey(KeyCode.LeftShift) && fireTimer <= 0f)
         {
@@ -93,12 +94,12 @@ public class CarController : MonoBehaviour
         {
             fireTimer -= Time.deltaTime;
         }
-    }
+    }*/
 
-    private void Shoot()
+    /*private void Shoot()
     {
         Instantiate(bulletPrefab, firingPoint.transform.position, firingPoint.transform.rotation);
-    }
+    }*/
 
     #region Fixed Update
     void FixedUpdate()

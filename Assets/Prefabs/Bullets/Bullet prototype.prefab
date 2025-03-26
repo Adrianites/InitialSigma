@@ -102,6 +102,10 @@ MonoBehaviour:
   speed: 85
   lifeTime: 4
   damage: 50
+  bulletPrefab: {fileID: 4191138111929373087}
+  firingPoint: {fileID: 7255120281834117156, guid: cf8103bcd6d32a34c879db077778bde8, type: 3}
+  firePoint: {fileID: 0}
+  fireRate: 0.5
 --- !u!50 &5119995999800141479
 Rigidbody2D:
   serializedVersion: 4
