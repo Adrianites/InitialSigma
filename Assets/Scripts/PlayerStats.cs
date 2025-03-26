@@ -15,16 +15,23 @@ public class PlayerStats : MonoBehaviour
 
     void Awake()
     {   
-        currentHealth = maxHealth;
         uiManager = FindObjectOfType<UIManager>();
         //Debug.Log("Player health initialized to: " + currentHealth);
+
+       currentHealth = maxHealth;
+       if (healthBar != null)
+       {
+           healthBar.SetMaxHealth(maxHealth);
+       } 
+
     }
 
     void Start()
     {
-        //currentHealth = maxHealth;
-        //Debug.Log("Player health initialized to: " + currentHealth);  
-        //healthBar.SetMaxHealth(maxHealth); //error here
+      if (healthBar != null)
+      {
+          healthBar.SetHealth(currentHealth);
+      }
     }
 
     void Update()   //DELETE AFTER TESTING HEALTH
@@ -39,7 +46,12 @@ public class PlayerStats : MonoBehaviour
     {
         Debug.Log("Player takes damage: " + damage);
         currentHealth -= damage;
-        //healthBar.SetHealth(currentHealth); //error here
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+
+        if (healthBar != null)
+        {
+            healthBar.SetHealth(currentHealth);
+        }
         Debug.Log("Player current health: " + currentHealth);
 
         if (currentHealth <= 0)
