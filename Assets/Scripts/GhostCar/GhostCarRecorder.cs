@@ -19,6 +19,8 @@ public class GhostCarRecorder : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         carInputHandler = GetComponent<CarInputHandler>();
+
+        GameManager.instance.OnGameStateChange += OnGameStateChange;
     }
     #endregion
 
@@ -28,9 +30,6 @@ public class GhostCarRecorder : MonoBehaviour
         GameObject ghostCar = Instantiate(ghostCarPlaybackPrefab);
 
         ghostCar.GetComponent<GhostCarPlayback>().LoadData(carInputHandler.playerID);
-
-        StartCoroutine(RecordGhostCarDataCO());
-        StartCoroutine(SaveCarPositionCO());
     }
     #endregion
 
@@ -51,7 +50,7 @@ public class GhostCarRecorder : MonoBehaviour
     #region Save Car Pos Coroutine
     IEnumerator SaveCarPositionCO()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(1);
         SaveData();
     }
     #endregion
@@ -68,6 +67,28 @@ public class GhostCarRecorder : MonoBehaviour
         }
 
         isRecording = false;
+    }
+    #endregion
+
+    #region On Game State Change
+    void OnGameStateChange(GameManager gameManager)
+    {
+        if (gameManager.GetGameState() == GameState.Running)
+        {
+            StartCoroutine(RecordGhostCarDataCO());
+        }
+
+        if (gameManager.GetGameState() == GameState.RaceOver)
+        {
+            StartCoroutine(SaveCarPositionCO());
+        }
+    }
+    #endregion
+
+    #region On Destroy
+    void OnDestroy()
+    {
+        GameManager.instance.OnGameStateChange -= OnGameStateChange;
     }
     #endregion
 }

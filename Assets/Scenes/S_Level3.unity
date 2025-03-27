@@ -33258,6 +33258,63 @@ MonoBehaviour:
   minDistanceToReachNode: 20
   nextPathNode:
   - {fileID: 695302048}
+--- !u!1001 &969893552
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4893284962969915166, guid: 415786c2912f8f24390942ca79c08e4d, type: 3}
+      propertyPath: m_Name
+      value: RaceEnd
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570787817201158128, guid: 415786c2912f8f24390942ca79c08e4d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 103.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570787817201158128, guid: 415786c2912f8f24390942ca79c08e4d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570787817201158128, guid: 415786c2912f8f24390942ca79c08e4d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.69750845
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570787817201158128, guid: 415786c2912f8f24390942ca79c08e4d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570787817201158128, guid: 415786c2912f8f24390942ca79c08e4d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570787817201158128, guid: 415786c2912f8f24390942ca79c08e4d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570787817201158128, guid: 415786c2912f8f24390942ca79c08e4d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570787817201158128, guid: 415786c2912f8f24390942ca79c08e4d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570787817201158128, guid: 415786c2912f8f24390942ca79c08e4d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570787817201158128, guid: 415786c2912f8f24390942ca79c08e4d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 415786c2912f8f24390942ca79c08e4d, type: 3}
 --- !u!1 &973967075
 GameObject:
   m_ObjectHideFlags: 0
@@ -34031,6 +34088,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1540358488798781391, guid: 488bb4c604d1dd3408b3b8fc51aa20fb, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1540358488798781391, guid: 488bb4c604d1dd3408b3b8fc51aa20fb, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1540358488798781391, guid: 488bb4c604d1dd3408b3b8fc51aa20fb, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1955546528865611843, guid: 488bb4c604d1dd3408b3b8fc51aa20fb, type: 3}
       propertyPath: m_text
       value: Kaboom
@@ -34090,6 +34159,18 @@ PrefabInstance:
     - target: {fileID: 7910990018921583881, guid: 488bb4c604d1dd3408b3b8fc51aa20fb, type: 3}
       propertyPath: m_Name
       value: QuitToMenuButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 8415631530891255642, guid: 488bb4c604d1dd3408b3b8fc51aa20fb, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8415631530891255642, guid: 488bb4c604d1dd3408b3b8fc51aa20fb, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8578072459472018515, guid: 488bb4c604d1dd3408b3b8fc51aa20fb, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -98302,3 +98383,4 @@ SceneRoots:
   - {fileID: 994453679}
   - {fileID: 1072323113}
   - {fileID: 2012634771}
+  - {fileID: 969893552}

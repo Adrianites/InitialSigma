@@ -90,7 +90,7 @@ public class PlayerStats : MonoBehaviour
     public void Die()
     {
         Debug.Log("Player died");
-        uiManager.PauseGame();
+        uiManager.Death();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

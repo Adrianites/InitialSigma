@@ -11129,10 +11129,6 @@ MonoBehaviour:
   LandingCheckCircleSize: 1.5
   carCollider: {fileID: 3330070991015346778}
   carCheckerCollider: {fileID: 4736005226280206699}
-  bulletPrefab: {fileID: 4191138111929373087, guid: da9bbc3bd9308694baebe6f94c64a747, type: 3}
-  firingPoint: {fileID: 5668654098059738748}
-  firePoint: {fileID: 0}
-  fireRate: 0.3
 --- !u!50 &738693198312292701
 Rigidbody2D:
   serializedVersion: 4
@@ -21574,7 +21570,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 4025203500197409997, guid: d6f79d8564f921944bf8d6c46d56ab9d, type: 2}
-  m_audioClip: {fileID: 8300000, guid: d2420cbb9e3cef141a65d7d8e01c9eee, type: 3}
+  m_audioClip: {fileID: 8300000, guid: f3d6629d05568484c912342069a08e43, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0
   m_Pitch: 1

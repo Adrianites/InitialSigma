@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,8 +18,12 @@ public class GameManager : MonoBehaviour
     #region Variables
     GameState gameState = GameState.Countdown;
     public static GameManager instance = null;
+    float raceStartTime = 0;
+    float raceFinishTime = 0;
+    #endregion
 
-    public PlayerStats playerStats;
+    #region Events
+    public event Action<GameManager> OnGameStateChange;
     #endregion
 
     #region Awake
@@ -38,11 +43,24 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-    #region Level Start
-    void LevelStart()
+    #region Get Race Time
+    public float GetRaceTime()
     {
-        gameState = GameState.Countdown;
-        Debug.Log("Level Start");
+        if (gameState == GameState.RaceOver)
+        {
+            return raceFinishTime - raceStartTime;
+        }
+        else
+        {
+            return Time.time - raceStartTime;
+        }
+    }
+    #endregion
+
+    #region Level Start
+    public void LevelStart()
+    {
+        ChangeGameState(GameState.Countdown);
     }
     #endregion
 
@@ -53,11 +71,30 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
+    #region Change Game State
+    public void ChangeGameState(GameState newGameState)
+    {
+        if (gameState != newGameState)
+        {
+            gameState = newGameState;
+            OnGameStateChange?.Invoke(this);
+        }
+    }
+    #endregion
+
     #region On Race Start
     public void OnRaceStart()
     {
-        gameState = GameState.Running;
-        Debug.Log("Race Start");
+        raceStartTime = Time.time;
+        ChangeGameState(GameState.Running);
+    }
+    #endregion
+
+    #region On Race Ended
+    public void OnRaceEnded()
+    {   
+        raceFinishTime = Time.time;
+        ChangeGameState(GameState.RaceOver);
     }
     #endregion
 

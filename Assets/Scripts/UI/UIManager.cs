@@ -133,8 +133,9 @@ public class UIManager : MonoBehaviour
 
     #region Restart Level
     public void RestartLevel()
-    {
+    {   
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        GameManager.instance.LevelStart();
         ResumeGame();
     }
     #endregion
@@ -156,6 +157,29 @@ public class UIManager : MonoBehaviour
         if(pauseCanvas != null)
         {
             pauseCanvas.SetActive(true);
+        }
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Confined;
+    }
+    #endregion
+
+    #region Death Menu
+    public void Death()
+    {
+        Time.timeScale = 0;
+        if(deathCanvas != null)
+        {
+            deathCanvas.SetActive(true);
+        }
+        
+        if(inGameCanvas != null)
+        {
+            inGameCanvas.SetActive(false);
+        }
+
+        if(pauseCanvas != null)
+        {
+            pauseCanvas.SetActive(false);
         }
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;

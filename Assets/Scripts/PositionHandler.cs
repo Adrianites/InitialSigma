@@ -46,7 +46,10 @@ public class PositionHandler : MonoBehaviour
 
         carLapCounter.SetCarPos(carPosition);
 
-        leaderboardUIHandler.UpdateList(lapCounters);
+        if (leaderboardUIHandler != null)
+        {
+            leaderboardUIHandler.UpdateList(lapCounters);
+        }
     }
     #endregion
 }
