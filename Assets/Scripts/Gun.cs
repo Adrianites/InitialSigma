@@ -29,7 +29,7 @@ public class Gun : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.LeftShift) && fireTimer <= 0f)
+        if (Input.GetKey(KeyCode.Space) && fireTimer <= 0f)
         {
             Shoot();
             fireTimer = fireRate;
