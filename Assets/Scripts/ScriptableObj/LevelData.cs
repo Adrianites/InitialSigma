@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+#if UNITY_EDITOR
 using UnityEditor.SearchService;
+#endif
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "NewLevelData", menuName = "LevelData", order =53)]
