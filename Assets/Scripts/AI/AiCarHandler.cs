@@ -208,20 +208,13 @@ public class AiCarHandler : MonoBehaviour
     {
         carCheckerCollider.enabled = false;
         RaycastHit2D raycastHit2D = Physics2D.CircleCast(transform.position + transform.up * 0.5f, carInFrontOfAiCircleCastValue, transform.up, 30, 1 << LayerMask.NameToLayer("Car"));
-        Debug.Log(raycastHit2D.collider);
         carCheckerCollider.enabled = true;
 
         if (raycastHit2D.collider != null)
         {
-            Debug.DrawRay(transform.position, transform.up * 30, Color.red);
-
             position = raycastHit2D.collider.transform.position;
             otherCarRightVector = raycastHit2D.collider.transform.right;
             return true;
-        }
-        else
-        {
-            Debug.DrawRay(transform.position, transform.up * 30, Color.black);
         }
 
         position = Vector3.zero;
@@ -251,8 +244,6 @@ public class AiCarHandler : MonoBehaviour
             newVectorToTarget = vectorToTarget * driveToTargetInfluence + avoidanceVectorLerped * avoidanceInfluence;
             newVectorToTarget.Normalize();
 
-            Debug.DrawRay(transform.position, avoidanceVector * 30, Color.green);
-            Debug.DrawRay(transform.position, newVectorToTarget * 30, Color.yellow);
             return;
         }
 

@@ -134,6 +134,7 @@ public class UIManager : MonoBehaviour
     #region Restart Level
     public void RestartLevel()
     {   
+        GameManager.instance.OnRaceEnded();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         GameManager.instance.LevelStart();
         ResumeGame();
