@@ -1400,9 +1400,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5035742252243593346, guid: cf8103bcd6d32a34c879db077778bde8, type: 3}
+      propertyPath: m_Lens.OrthographicSize
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 5368294536096406896, guid: cf8103bcd6d32a34c879db077778bde8, type: 3}
+      propertyPath: far clip plane
+      value: 1001.8
+      objectReference: {fileID: 0}
     - target: {fileID: 5368294536096406896, guid: cf8103bcd6d32a34c879db077778bde8, type: 3}
       propertyPath: orthographic size
-      value: 40
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 5650753288031401500, guid: cf8103bcd6d32a34c879db077778bde8, type: 3}
       propertyPath: healthBar
