@@ -12,6 +12,34 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: d3e5b7bd46918e0468cf5c0da9305915, type: 3}
+    - target: {fileID: 986788245206956523, guid: cf8103bcd6d32a34c879db077778bde8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 986788245206956523, guid: cf8103bcd6d32a34c879db077778bde8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 986788245206956523, guid: cf8103bcd6d32a34c879db077778bde8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1965441375361711457, guid: cf8103bcd6d32a34c879db077778bde8, type: 3}
+      propertyPath: m_Color.b
+      value: 0.01124239
+      objectReference: {fileID: 0}
+    - target: {fileID: 1965441375361711457, guid: cf8103bcd6d32a34c879db077778bde8, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1965441375361711457, guid: cf8103bcd6d32a34c879db077778bde8, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2649088817465025537, guid: cf8103bcd6d32a34c879db077778bde8, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3389037818054293368, guid: cf8103bcd6d32a34c879db077778bde8, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -63,6 +91,10 @@ PrefabInstance:
     - target: {fileID: 4868855450411954962, guid: cf8103bcd6d32a34c879db077778bde8, type: 3}
       propertyPath: m_Name
       value: Jerome
+      objectReference: {fileID: 0}
+    - target: {fileID: 5368294536096406896, guid: cf8103bcd6d32a34c879db077778bde8, type: 3}
+      propertyPath: orthographic size
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 6612911164113827099, guid: cf8103bcd6d32a34c879db077778bde8, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].x
@@ -193,7 +225,9 @@ PrefabInstance:
       value: -0.00038151705
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 4877372376099869084, guid: cf8103bcd6d32a34c879db077778bde8, type: 3}
+    - {fileID: 3932180803729208918, guid: cf8103bcd6d32a34c879db077778bde8, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf8103bcd6d32a34c879db077778bde8, type: 3}
