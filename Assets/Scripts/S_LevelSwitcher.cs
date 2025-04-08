@@ -22,7 +22,7 @@ public class S_LevelSwitcher : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D collision)
     {   if (collision.gameObject.tag == "Player")
         {
-        OnSwitchScene();
+        StartCoroutine(FadeInCo(0.05f));
         }
         else
         {
@@ -31,45 +31,46 @@ public class S_LevelSwitcher : MonoBehaviour
     }
     #endregion
 
-    #region Switch Scene
-    public void OnSwitchScene()
-    {
-        switch(scene)
-        {
-            case Scene.MainMenu:
-                StartCoroutine(FadeInCo(3));
-                GameManager.instance.ChangeGameState(GameState.Countdown);
-                SceneManager.LoadScene(NameStrings.MainMenu);
-                break;
-            case Scene.Scene1:
-                StartCoroutine(FadeInCo(3));
-                GameManager.instance.ChangeGameState(GameState.Countdown);
-                SceneManager.LoadScene(NameStrings.SingleplayerLevel1);
-                break;
-            case Scene.Scene2:
-                StartCoroutine(FadeInCo(3));
-                GameManager.instance.ChangeGameState(GameState.Countdown);
-                SceneManager.LoadScene(NameStrings.SingleplayerLevel2);
-                break;
-            case Scene.Scene3:
-                StartCoroutine(FadeInCo(3));
-                GameManager.instance.ChangeGameState(GameState.Countdown);
-                SceneManager.LoadScene(NameStrings.SingleplayerLevel3);
-                break;
-            case Scene.Scene4:
-                StartCoroutine(FadeInCo(3));
-                GameManager.instance.ChangeGameState(GameState.Countdown);
-                SceneManager.LoadScene(NameStrings.SingleplayerLevel4);
-                break;
-
-
-        }
-    }
-    #endregion
 
     IEnumerator FadeInCo(float WaitForSeconds)
     {
-        sceneAnimator.SetTrigger(NameStrings.EndLevel);
-        yield return new WaitForSeconds(WaitForSeconds);    
+        switch(scene)
+        {
+        case Scene.MainMenu:
+            sceneAnimator.SetTrigger(NameStrings.EndLevel);
+            yield return new WaitForSeconds(WaitForSeconds);
+
+            GameManager.instance.ChangeGameState(GameState.Countdown);
+            SceneManager.LoadScene(NameStrings.MainMenu);
+            break;
+        case Scene.Scene1:
+            sceneAnimator.SetTrigger(NameStrings.EndLevel);
+            yield return new WaitForSeconds(WaitForSeconds);
+
+            GameManager.instance.ChangeGameState(GameState.Countdown);
+            SceneManager.LoadScene(NameStrings.SingleplayerLevel1);
+            break;
+        case Scene.Scene2:
+            sceneAnimator.SetTrigger(NameStrings.EndLevel);
+            yield return new WaitForSeconds(WaitForSeconds);
+
+            GameManager.instance.ChangeGameState(GameState.Countdown);
+            SceneManager.LoadScene(NameStrings.SingleplayerLevel2);
+            break;
+        case Scene.Scene3:
+            sceneAnimator.SetTrigger(NameStrings.EndLevel);
+            yield return new WaitForSeconds(WaitForSeconds);
+
+            GameManager.instance.ChangeGameState(GameState.Countdown);
+            SceneManager.LoadScene(NameStrings.SingleplayerLevel3);
+            break;
+        case Scene.Scene4:
+            sceneAnimator.SetTrigger(NameStrings.EndLevel);
+            yield return new WaitForSeconds(WaitForSeconds);
+
+            GameManager.instance.ChangeGameState(GameState.Countdown);
+            SceneManager.LoadScene(NameStrings.SingleplayerLevel4);
+            break;    
+        }
     }
 }
