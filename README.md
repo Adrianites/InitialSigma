@@ -4,7 +4,7 @@
 | Keyboard | Controller |          Functionality          |
 | :------- | :--------: | :-----------------------------: |
 |   WASD   | Left Stick | Forward, Left, Right, Backwards |
-|   Shift  |    A/X     |            Shooting             |
+|   Space  |    A/X     |            Shooting             |
 |   LMB    |    None    |           Confirm (UI)          |
 ---
 ## Scenes
