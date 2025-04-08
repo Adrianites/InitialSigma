@@ -22199,7 +22199,7 @@ MonoBehaviour:
   m_Follow: {fileID: 2425607440575198857}
   m_Lens:
     FieldOfView: 52.2
-    OrthographicSize: 40
+    OrthographicSize: 35
     NearClipPlane: 0
     FarClipPlane: 1001.8
     Dutch: 0
