@@ -10,6 +10,8 @@ internal class NameStrings
     internal static string CarAppear = "UiCarAppear";
     internal static string CarDisappear = "UiCarDisappear";
     //internal static string isDetected? = "isDetected";
+    internal static string StartLevel = "Start";
+    internal static string EndLevel = "End";
     #endregion
 
     #region Scene Strings
@@ -21,4 +23,5 @@ internal class NameStrings
     internal static string SingleplayerLevel3 = "S_Level3";
     internal static string SingleplayerLevel4 = "S_Level4";
     #endregion
+
 }
