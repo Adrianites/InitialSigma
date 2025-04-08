@@ -4821,6 +4821,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scene: 2
+  sceneAnimator: {fileID: 620422236}
 --- !u!61 &448953718
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7362,6 +7363,11 @@ PrefabInstance:
       addedObject: {fileID: 964938049}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 488bb4c604d1dd3408b3b8fc51aa20fb, type: 3}
+--- !u!95 &620422236 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8568197381894420336, guid: 488bb4c604d1dd3408b3b8fc51aa20fb, type: 3}
+  m_PrefabInstance: {fileID: 620422235}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &633043999
 GameObject:
   m_ObjectHideFlags: 0

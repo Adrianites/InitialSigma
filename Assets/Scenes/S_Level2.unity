@@ -8672,6 +8672,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scene: 3
+  sceneAnimator: {fileID: 690350967}
 --- !u!61 &644971620
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9534,6 +9535,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &690350967 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8568197381894420336, guid: 488bb4c604d1dd3408b3b8fc51aa20fb, type: 3}
+  m_PrefabInstance: {fileID: 620422235}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &702832480 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2425607440575198857, guid: cf8103bcd6d32a34c879db077778bde8, type: 3}

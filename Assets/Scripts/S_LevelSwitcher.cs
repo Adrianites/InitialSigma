@@ -8,6 +8,14 @@ public class S_LevelSwitcher : MonoBehaviour
     #region Variables
     public Scene scene;
     public enum Scene{MainMenu, Scene1, Scene2, Scene3, Scene4}
+    public Animator sceneAnimator;
+    #endregion
+
+    #region Awake
+    void Awake()
+    {
+        sceneAnimator.SetTrigger(NameStrings.StartLevel);
+    }
     #endregion
 
     #region On Trigger
@@ -29,22 +37,27 @@ public class S_LevelSwitcher : MonoBehaviour
         switch(scene)
         {
             case Scene.MainMenu:
+                StartCoroutine(FadeInCo(3));
                 GameManager.instance.ChangeGameState(GameState.Countdown);
                 SceneManager.LoadScene(NameStrings.MainMenu);
                 break;
             case Scene.Scene1:
+                StartCoroutine(FadeInCo(3));
                 GameManager.instance.ChangeGameState(GameState.Countdown);
                 SceneManager.LoadScene(NameStrings.SingleplayerLevel1);
                 break;
             case Scene.Scene2:
+                StartCoroutine(FadeInCo(3));
                 GameManager.instance.ChangeGameState(GameState.Countdown);
                 SceneManager.LoadScene(NameStrings.SingleplayerLevel2);
                 break;
             case Scene.Scene3:
+                StartCoroutine(FadeInCo(3));
                 GameManager.instance.ChangeGameState(GameState.Countdown);
                 SceneManager.LoadScene(NameStrings.SingleplayerLevel3);
                 break;
             case Scene.Scene4:
+                StartCoroutine(FadeInCo(3));
                 GameManager.instance.ChangeGameState(GameState.Countdown);
                 SceneManager.LoadScene(NameStrings.SingleplayerLevel4);
                 break;
@@ -53,4 +66,10 @@ public class S_LevelSwitcher : MonoBehaviour
         }
     }
     #endregion
+
+    IEnumerator FadeInCo(float WaitForSeconds)
+    {
+        sceneAnimator.SetTrigger(NameStrings.EndLevel);
+        yield return new WaitForSeconds(WaitForSeconds);    
+    }
 }
