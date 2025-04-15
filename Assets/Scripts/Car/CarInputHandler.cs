@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class CarInputHandler : MonoBehaviour
 {   
@@ -34,6 +35,34 @@ public class CarInputHandler : MonoBehaviour
         {
             uiManager.PauseGame();
         }
+
+
+            #region Cheats
+            if (Input.GetKeyDown(KeyCode.F1))
+            {
+                SceneManager.LoadScene(NameStrings.MainMenu);
+            }
+
+            if (Input.GetKeyDown(KeyCode.F2))
+            {
+                SceneManager.LoadScene(NameStrings.SingleplayerLevel1);
+            }
+
+            if (Input.GetKeyDown(KeyCode.F3))
+            {
+                SceneManager.LoadScene(NameStrings.SingleplayerLevel2);
+            }
+
+            if (Input.GetKeyDown(KeyCode.F4))
+            {
+                SceneManager.LoadScene(NameStrings.SingleplayerLevel3);
+            }
+
+            if (Input.GetKeyDown(KeyCode.F5))
+            {
+                SceneManager.LoadScene(NameStrings.SingleplayerLevel4);
+            }
+            #endregion
     }
     #endregion
 }
