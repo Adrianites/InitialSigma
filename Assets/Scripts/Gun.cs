@@ -27,17 +27,19 @@ public class Gun : MonoBehaviour
         Debug.Log("Fire");
     }
 
-    void Update()
+    public void PlayerShoot()
     {
-        if (Input.GetKey(KeyCode.Space) && fireTimer <= 0f)
-        {
-            Shoot();
-            fireTimer = fireRate;
-        }
-        else
-        {
-            fireTimer -= Time.deltaTime;
-        }
+        Shoot();
+
+        // if (fireTimer <= 0f)
+        // {
+        //     Shoot();
+        //     fireTimer = fireRate;
+        // }
+        // else
+        // {
+        //     fireTimer -= Time.deltaTime;
+        // }
     }
 
     private void Shoot()

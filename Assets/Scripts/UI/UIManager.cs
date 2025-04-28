@@ -15,13 +15,10 @@ public class UIManager : MonoBehaviour
     GameObject inGameCanvas = null;
     GameObject winCanvas = null;
     GameObject pauseCanvas = null;
+    GameObject settingsCanvas = null;
     public PlayerManager playerManager;
-    public PlayerData playerData;
-    public LevelData levelData;
-    public Toggle player2Toggle;
-    public Toggle player3Toggle;
-    public Toggle player4Toggle;
     public TMP_Text CountdownText = null;
+    public bool isPaused = false;
     #endregion
 
     #region Awake
@@ -31,9 +28,8 @@ public class UIManager : MonoBehaviour
         inGameCanvas = GameObject.Find("InGameCanvas");
         winCanvas = GameObject.Find("WinCanvas");
         pauseCanvas = GameObject.Find("PauseCanvas");
+        settingsCanvas = GameObject.Find("SettingsCanvas");
         playerManager = GameObject.FindObjectOfType<PlayerManager>();
-        playerData = Resources.Load<PlayerData>("PlayerData");
-        levelData = Resources.Load<LevelData>("LevelData");
         if (CountdownText != null)
         {
             CountdownText.text = "";
@@ -73,22 +69,10 @@ public class UIManager : MonoBehaviour
             {
                 pauseCanvas.SetActive(false);
             }
-        }
-
-        if (player2Toggle != null)
-        {
-            player2Toggle.isOn = playerData.player2Joined;
-            player2Toggle.onValueChanged.AddListener(delegate { Player2Joined(); });
-        }
-        if (player3Toggle != null)
-        {
-            player3Toggle.isOn = playerData.player3Joined;
-            player3Toggle.onValueChanged.AddListener(delegate { Player3Joined(); });
-        }
-        if (player4Toggle != null)
-        {
-            player4Toggle.isOn = playerData.player4Joined;
-            player4Toggle.onValueChanged.AddListener(delegate { Player4Joined(); });
+            if (settingsCanvas != null)
+            {
+                settingsCanvas.SetActive(false);
+            }
         }
     }
     #endregion
@@ -134,6 +118,7 @@ public class UIManager : MonoBehaviour
     #region Restart Level
     public void RestartLevel()
     {   
+        isPaused = false;
         GameManager.instance.OnRaceEnded();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         GameManager.instance.LevelStart();
@@ -145,6 +130,7 @@ public class UIManager : MonoBehaviour
     public void PauseGame()
     {
         Time.timeScale = 0;
+        isPaused = true;
         if(deathCanvas != null)
         {
             deathCanvas.SetActive(false);
@@ -168,6 +154,7 @@ public class UIManager : MonoBehaviour
     public void Death()
     {
         Time.timeScale = 0;
+        isPaused = true;
         if(deathCanvas != null)
         {
             deathCanvas.SetActive(true);
@@ -191,6 +178,7 @@ public class UIManager : MonoBehaviour
     public void WinMenu()
     {
         Time.timeScale = 0;
+        isPaused = true;
         if(winCanvas != null)
         {
             winCanvas.SetActive(true);
@@ -213,6 +201,7 @@ public class UIManager : MonoBehaviour
     public void ResumeGame()
     {
         Time.timeScale = 1;
+        isPaused = false;
         if(deathCanvas != null)
         {
             deathCanvas.SetActive(false);
@@ -228,6 +217,11 @@ public class UIManager : MonoBehaviour
             pauseCanvas.SetActive(false);
         }
 
+        if (settingsCanvas != null)
+        {
+            settingsCanvas.SetActive(false);
+        }
+
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
@@ -236,10 +230,10 @@ public class UIManager : MonoBehaviour
     #region MainMenu
     public void MainMenu()
     {
-        SceneManager.LoadScene(NameStrings.MainMenu);
         Time.timeScale = 1;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
+        SceneManager.LoadScene(NameStrings.MainMenu);
     }
     #endregion
 
@@ -264,6 +258,7 @@ public class UIManager : MonoBehaviour
     public void Finish()
     {
         Time.timeScale = 0;
+        isPaused = true;
         if(deathCanvas != null)
         {
             deathCanvas.SetActive(true);
@@ -273,30 +268,14 @@ public class UIManager : MonoBehaviour
         {
             inGameCanvas.SetActive(false);
         }
+
+        if(pauseCanvas != null)
+        {
+            pauseCanvas.SetActive(false);
+        }
+        
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
-    }
-    #endregion
-
-    public void SetPlayerData(PlayerData data)
-    {
-        playerData = data;
-    }    
-
-    #region Extra Players Joining
-    public void Player2Joined()
-    {
-        playerData.player2Joined = player2Toggle.isOn;
-    }
-
-    public void Player3Joined()
-    {
-        playerData.player3Joined = player3Toggle.isOn;
-    }
-
-    public void Player4Joined()
-    {
-        playerData.player4Joined = player4Toggle.isOn;
     }
     #endregion
 

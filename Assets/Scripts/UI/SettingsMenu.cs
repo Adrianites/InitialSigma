@@ -8,7 +8,7 @@ using TMPro;
 public class SettingsMenu : MonoBehaviour
 {
     #region Variables
-    public TMP_Dropdown graphicsDropdown, windowDropdown, resolutionDropdown;
+    public TMP_Dropdown graphicsDropdown, windowDropdown;
     public Slider MasterVolumeSlider, MusicVolumeSlider, SFXVolumeSlider, AmbienceVolumeSlider;
     public AudioMixer audioMixer;
     #endregion
@@ -31,32 +31,30 @@ public class SettingsMenu : MonoBehaviour
             case 1:
                 Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
                 break;
-            case 2:
-                Screen.fullScreenMode = FullScreenMode.ExclusiveFullScreen;
-                break;
         }
     }
     #endregion
 
+
     #region Volume
     public void ChangeMasterVolume()
     {
-        audioMixer.SetFloat("Master", MasterVolumeSlider.value);
+        audioMixer.SetFloat("MasterVolume", MasterVolumeSlider.value);
     }
 
     public void ChangeSFXVolume()
     {
-        audioMixer.SetFloat("SFX", SFXVolumeSlider.value);
+        audioMixer.SetFloat("SFXVolume", SFXVolumeSlider.value);
     }
 
     public void ChangeMusicVolume()
     {
-        audioMixer.SetFloat("Music", MusicVolumeSlider.value);
+        audioMixer.SetFloat("MusicVolume", MusicVolumeSlider.value);
     }
 
     public void ChangeAmbienceVolume()
     {
-        audioMixer.SetFloat("Ambience", AmbienceVolumeSlider.value);
+        audioMixer.SetFloat("AmbienceVolume", AmbienceVolumeSlider.value);
     }
     #endregion
 }

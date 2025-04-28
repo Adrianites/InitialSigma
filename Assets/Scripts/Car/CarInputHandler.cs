@@ -11,6 +11,7 @@ public class CarInputHandler : MonoBehaviour
     public Vector2 movement;
     CarController carController;
     UIManager uiManager;
+    Gun gun;
     #endregion
 
     #region Awake
@@ -18,24 +19,42 @@ public class CarInputHandler : MonoBehaviour
     {
         carController = GetComponent<CarController>();
         uiManager = GameObject.FindObjectOfType<UIManager>();
+        gun = GameObject.FindObjectOfType<Gun>();
     }
     #endregion
 
+    #region OnMove
     public void OnMove(InputValue value)
     {
         movement=value.Get<Vector2>();
     }
+    #endregion
+
+    #region OnShoot
+    public void OnShoot()
+    {
+        gun.PlayerShoot();
+    }
+    #endregion
+
+    #region OnPause
+    public void OnPause()
+    {
+        if (uiManager.isPaused == false)
+        {
+            uiManager.PauseGame();
+        }
+        else
+        {
+            uiManager.ResumeGame();
+        }
+    }
+    #endregion
 
     #region Update
     void Update()
     {
         carController.SetInputVector(movement);
-
-        if( Input.GetKeyDown(KeyCode.Tab))
-        {
-            uiManager.PauseGame();
-        }
-
 
             #region Cheats
             if (Input.GetKeyDown(KeyCode.F1))
