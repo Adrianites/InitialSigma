@@ -6,6 +6,7 @@
 |   WASD   | Left Stick | Forward, Left, Right, Backwards |
 |   Space  |    A/X     |            Shooting             |
 |   LMB    |    None    |           Confirm (UI)          |
+| Tab, Esc |    Start   |        Pause/Unpause Game       |
 ---
 ## Scenes
 ### - Main Menu
