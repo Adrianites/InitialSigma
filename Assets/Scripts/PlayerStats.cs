@@ -8,7 +8,7 @@ public class PlayerStats : MonoBehaviour
 {
     [Header("Player Health")]
     public float maxHealth = 100;
-    public float currentHealth = 100;
+    public float currentHealth;
 
     public UIManager uiManager;
     public HealthBar healthBar;
@@ -18,20 +18,29 @@ public class PlayerStats : MonoBehaviour
         uiManager = FindObjectOfType<UIManager>();
         //Debug.Log("Player health initialized to: " + currentHealth);
 
-       currentHealth = maxHealth;
-       if (healthBar != null)
-       {
-           healthBar.SetMaxHealth(maxHealth);
-       } 
-
+        GameObject healthBarObject = GameObject.Find("HealthBar");
+        if (healthBarObject != null)
+        {
+            healthBar = healthBarObject.GetComponent<HealthBar>();
+        }
+        else
+        {
+            Debug.LogWarning("HealthBar GameObject not found in the scene!");
+        }
     }
 
     void Start()
     {
-      if (healthBar != null)
-      {
-          healthBar.SetHealth(currentHealth);
-      }
+        currentHealth = maxHealth;
+        if (healthBar != null)
+        {
+            healthBar.SetHealth(currentHealth);
+        }
+        else
+        {
+            Debug.LogWarning("HealthBar reference is missing in PlayerStats script.");
+        }
+       
     }
 
     void Update()   //DELETE AFTER TESTING HEALTH
@@ -104,17 +113,19 @@ public class PlayerStats : MonoBehaviour
                 TakeDamage(damageZone.damageAmount); //change to damageZoneTakeDamage when fixed
             }
         }
+
         else if (collision.CompareTag("EndGame"))
         {
             uiManager.WinMenu();
         }
+
         else if (collision.CompareTag("Mine"))
         {   
             Mine mine = collision.GetComponent<Mine>();
             if (mine != null)
             {
                 Debug.Log("Player entered MineRange: " + mine.gameObject.name);
-                MineTakeDamage(mine.damageAmount);
+                TakeDamage(mine.damageAmount);
                 Object.Destroy(mine.gameObject);
             }
         }
