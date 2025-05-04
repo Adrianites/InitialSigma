@@ -12,15 +12,22 @@ public class TurretFiring : MonoBehaviour
     [SerializeField] private float fireRate = 0.5f;
 
     private float fireTimer;
-
-    public bool inZone = false;
+    private bool inZone = false; 
+    private Turret turret;
 
     PlayerStats playerStats;
-    //Bullet bullet;
-    
+
+    void Awake()
+    {
+        turret = GetComponent<Turret>();
+        if (turret == null)
+        {
+            Debug.LogError("Turret component not found on this GameObject.");
+        }
+    }
+
     public void OnTriggerEnter2D()
     {
-        if (inZone)
         {
             Debug.Log("Player entered turret range.");
             if (fireTimer <= 0f)

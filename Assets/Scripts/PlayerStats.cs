@@ -102,6 +102,7 @@ public class PlayerStats : MonoBehaviour
         uiManager.Death();
     }
 
+    #region Trigger Events
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("DamageZone"))
@@ -141,4 +142,5 @@ public class PlayerStats : MonoBehaviour
             }
         }
     }
+    #endregion
 }

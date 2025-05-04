@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class Turret : MonoBehaviour
 {
+    [Header("Turret Settings")]
     public float rotationSpeed = 5f;
     public Transform player; 
+
+    private bool isPlayerInRange = false;
 
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -13,19 +16,19 @@ public class Turret : MonoBehaviour
         {
             Debug.Log("Player detected by turret.");
             player = collision.transform;
+            isPlayerInRange = true;
         }
 
     }
     void OnTriggerEnter2D()
     {
-        Debug.Log("Turret Start method called.");
-        
         //find the player GameObject by tag
         GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
         if (playerObject != null)
         {
             player = playerObject.transform; //assign the players transform
             Debug.Log("Player found: " + playerObject.name);
+            isPlayerInRange = true;
         }
         else
         {
@@ -55,12 +58,8 @@ public class Turret : MonoBehaviour
         } */
     }
 
-    void OnTriggerExit2D(Collider2D collision)
+    public bool IsPlayerInRange()
     {
-        if (collision.CompareTag("Player"))
-        {
-            Debug.Log("Player exited turret range.");
-            player = null;
-        }
+        return isPlayerInRange;
     }
 }
