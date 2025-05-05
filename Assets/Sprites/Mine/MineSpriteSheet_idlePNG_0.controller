@@ -62,7 +62,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: isDetected?
+    m_ConditionEvent: isDetected
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -1368153734155001285}
@@ -87,7 +87,7 @@ AnimatorController:
   m_Name: MineSpriteSheet_idlePNG_0
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: isDetected?
+  - m_Name: isDetected
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0

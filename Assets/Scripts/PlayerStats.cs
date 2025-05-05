@@ -12,6 +12,7 @@ public class PlayerStats : MonoBehaviour
 
     public UIManager uiManager;
     public HealthBar healthBar;
+    Animator animator;
 
     void Awake()
     {   
@@ -109,10 +110,10 @@ public class PlayerStats : MonoBehaviour
         {
             DamageZone damageZone = collision.GetComponent<DamageZone>();
             if (damageZone != null)
-            {
+                {
                 Debug.Log("Player entered DamageZone: " + damageZone.gameObject.name);
                 TakeDamage(damageZone.damageAmount); //change to damageZoneTakeDamage when fixed
-            }
+                }
         }
 
         else if (collision.CompareTag("EndGame"))
@@ -126,8 +127,30 @@ public class PlayerStats : MonoBehaviour
             if (mine != null)
             {
                 Debug.Log("Player entered MineRange: " + mine.gameObject.name);
+                
                 TakeDamage(mine.damageAmount);
-                Object.Destroy(mine.gameObject);
+
+                Animator mineAnimator = mine.GetComponent<Animator>();
+                if (mineAnimator != null)
+                {
+                    mineAnimator.SetBool("isDetected", true);
+                }
+                else
+                {
+                    Debug.LogWarning("Animator component not found on Mine object.");
+                }
+                
+                AudioSource mineAudio = mine.GetComponent<AudioSource>();
+                if (mineAudio != null)
+                {
+                    mineAudio.Play(); // Play the sound
+                }
+                else
+                {
+                 Debug.LogWarning("AudioSource component not found on Mine object.");
+                }
+
+                StartCoroutine(DestroyMineAfterDelay(mine.gameObject, 0.7f));
             }
         }
 
@@ -142,5 +165,13 @@ public class PlayerStats : MonoBehaviour
             }
         }
     }
+    #endregion
+
+    #region Trigger Exit Events
+    private IEnumerator DestroyMineAfterDelay(GameObject mine, float delay)
+        {
+            yield return new WaitForSeconds(delay);
+            Destroy(mine);
+        }
     #endregion
 }

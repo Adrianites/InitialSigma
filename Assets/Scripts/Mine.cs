@@ -7,11 +7,7 @@ using UnityEngine.UI;
 
 public class Mine : MonoBehaviour
 {
-    Animation anim;
-
+    [Header("Mine Settings")]
     public float damageAmount = 100f;
-     
 
-    PlayerStats playerStats;
-    Animator animator;
 }
