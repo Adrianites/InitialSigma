@@ -27,13 +27,12 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Bullet hit: " + other.gameObject.name);
-       
-        if (other.CompareTag("Enemy"))
+        if (other.CompareTag("AI") || other.CompareTag("Enemy"))
         {
             Enemy enemy = other.GetComponent<Enemy>();
             if (enemy != null)
             {
+                Debug.Log("Enemy takes damage: " + damage);
                 enemy.TakeDamage(damage); 
             }
             
@@ -41,10 +40,10 @@ public class Bullet : MonoBehaviour
         }
         else if (other.CompareTag("Player"))
         {
-            Debug .Log("Bullet hit player: " + other.gameObject.name);
             PlayerStats playerStats = other.GetComponent<PlayerStats>();
             if (playerStats != null)
             {
+                Debug.Log("Player takes damage: " + damage);
                 playerStats.TakeDamage(damage); 
             }
 

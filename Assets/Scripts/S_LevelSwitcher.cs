@@ -24,10 +24,6 @@ public class S_LevelSwitcher : MonoBehaviour
         {
         StartCoroutine(FadeInCo(0.05f));
         }
-        else
-        {
-            Debug.Log("Object Not Assigned Tag");
-        }
     }
     #endregion
 

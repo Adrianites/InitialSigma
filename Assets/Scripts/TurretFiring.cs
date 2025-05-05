@@ -29,7 +29,6 @@ public class TurretFiring : MonoBehaviour
     public void OnTriggerEnter2D()
     {
         {
-            Debug.Log("Player entered turret range.");
             if (fireTimer <= 0f)
             {
                 Shoot();
@@ -39,7 +38,6 @@ public class TurretFiring : MonoBehaviour
             {
                 fireTimer -= Time.deltaTime;
             }
-            Debug.Log("Fire");
         }
 
     /* Debug.Log("Player entered turret range.");
@@ -77,7 +75,6 @@ public class TurretFiring : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            Debug.Log("Player left turret range.");
             playerStats = null;
         }
     }

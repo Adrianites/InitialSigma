@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-     private float fireTimer;
+    private float fireTimer;
 
     [Header("Gun")]
     [SerializeField] private GameObject bulletPrefab;
@@ -24,7 +24,6 @@ public class Gun : MonoBehaviour
         {
             fireTimer -= Time.deltaTime;
         }
-        Debug.Log("Fire");
     }
 
     public void PlayerShoot()
@@ -44,7 +43,7 @@ public class Gun : MonoBehaviour
 
     private void Shoot()
     {
-     Instantiate(bulletPrefab, firingPoint.transform.position, firingPoint.transform.rotation);
+        Instantiate(bulletPrefab, firingPoint.transform.position, firingPoint.transform.rotation);
     }
 
 }

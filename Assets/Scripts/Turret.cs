@@ -14,7 +14,6 @@ public class Turret : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            Debug.Log("Player detected by turret.");
             player = collision.transform;
             isPlayerInRange = true;
         }
@@ -27,18 +26,11 @@ public class Turret : MonoBehaviour
         if (playerObject != null)
         {
             player = playerObject.transform; //assign the players transform
-            Debug.Log("Player found: " + playerObject.name);
             isPlayerInRange = true;
-        }
-        else
-        {
-            Debug.Log("Player not found!");
         }
     }
     void FixedUpdate()
     {
-        //sDebug.Log("Turret Update method called.");
-        Debug.Log($"player {player}");
         if (player != null)
         {
             //calculating the direction
@@ -48,9 +40,6 @@ public class Turret : MonoBehaviour
             //smooth rotation
             Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, angle - 90)); //adjust for sprite rotation
             transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
-            Debug.Log("Turret rotating towards player. Angle: " + angle);
-            Debug.Log("Current Rotation: " + transform.rotation.eulerAngles);
-            Debug.Log("Target Rotation: " + targetRotation.eulerAngles);
         }
         /*else
         {

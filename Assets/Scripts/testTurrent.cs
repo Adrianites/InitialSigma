@@ -68,11 +68,6 @@ public class testTurrent : MonoBehaviour
         if (bulletPrefab != null && firePoint != null)
         {
             Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-            Debug.Log("Turret fired a bullet.");
-        }
-        else
-        {
-            Debug.LogWarning("Bullet prefab or fire point is not assigned.");
         }
     }
 }

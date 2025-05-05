@@ -20,16 +20,11 @@ public class PlayerStats : MonoBehaviour
     void Awake()
     {   
         uiManager = FindObjectOfType<UIManager>();
-        //Debug.Log("Player health initialized to: " + currentHealth);
 
         GameObject healthBarObject = GameObject.Find("HealthBar");
         if (healthBarObject != null)
         {
             healthBar = healthBarObject.GetComponent<HealthBar>();
-        }
-        else
-        {
-            Debug.LogWarning("HealthBar GameObject not found in the scene!");
         }
     }
 
@@ -40,33 +35,17 @@ public class PlayerStats : MonoBehaviour
         {
             healthBar.SetHealth(currentHealth);
         }
-        else
-        {
-            Debug.LogWarning("HealthBar reference is missing in PlayerStats script.");
-        }
-       
-    }
-
-    void Update()   //DELETE AFTER TESTING HEALTH
-    {
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            TakeDamage(50);
-        }
     }
 
    public void TakeDamage(float damage)
     {
-        Debug.Log("Player takes damage: " + damage);
         currentHealth -= damage;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 
         if (healthBar != null)
         {
-            Debug.Log("HealthBar is not null, updating health bar.");
             healthBar.SetHealth(currentHealth);
         }
-        Debug.Log("Player current health: " + currentHealth);
 
         if (currentHealth <= 0)
         {
@@ -86,9 +65,7 @@ public class PlayerStats : MonoBehaviour
     } */
     public void MineTakeDamage(float damage)
     {
-        Debug.Log("Player takes damage: " + damage);
         currentHealth -= damage;
-        Debug.Log("Player current health: " + currentHealth);
         if (currentHealth <= 0)
         {
             Die();
@@ -102,7 +79,6 @@ public class PlayerStats : MonoBehaviour
 
     public void Die()
     {
-        Debug.Log("Player died");
         uiManager.Death();
     }
 
@@ -114,7 +90,6 @@ public class PlayerStats : MonoBehaviour
             DamageZone damageZone = collision.GetComponent<DamageZone>();
             if (damageZone != null)
                 {
-                Debug.Log("Player entered DamageZone: " + damageZone.gameObject.name);
                 TakeDamage(damageZone.damageAmount); //change to damageZoneTakeDamage when fixed
                 }
         }
@@ -129,7 +104,6 @@ public class PlayerStats : MonoBehaviour
             Mine mine = collision.GetComponent<Mine>();
             if (mine != null)
             {
-                Debug.Log("Player entered MineRange: " + mine.gameObject.name);
                 
                 TakeDamage(mine.damageAmount);
 
@@ -138,19 +112,11 @@ public class PlayerStats : MonoBehaviour
                 {
                     mineAnimator.SetBool("isDetected", true);
                 }
-                else
-                {
-                    Debug.LogWarning("Animator component not found on Mine object.");
-                }
                 
                 AudioSource mineAudio = mine.GetComponent<AudioSource>();
                 if (mineAudio != null)
                 {
                     MineAudioSource.Play(); // Play the sound
-                }
-                else
-                {
-                 Debug.LogWarning("AudioSource component not found on Mine object.");
                 }
 
                 StartCoroutine(DestroyMineAfterDelay(mine.gameObject, 0.7f));
@@ -162,7 +128,6 @@ public class PlayerStats : MonoBehaviour
             Spike spike = collision.GetComponent<Spike>();
             if (spike != null)
             {
-                Debug.Log("Player entered SpikeRange: " + spike.gameObject.name);
                 TakeDamage(spike.damage);
 
                 AudioSource spikeAudio = spike.GetComponent<AudioSource>();
@@ -170,10 +135,6 @@ public class PlayerStats : MonoBehaviour
                 {
                     SpikeAudioSource.Play();
                     Object.Destroy(spike.gameObject); // Play the sound
-                }
-                else
-                {
-                 Debug.LogWarning("AudioSource component not found on Mine object.");
                 }
                 Object.Destroy(spike.gameObject);
             }
@@ -184,13 +145,8 @@ public class PlayerStats : MonoBehaviour
             Bullet bullet = collision.GetComponent<Bullet>();
             if (bullet != null)
             {
-                Debug.Log("Player hit by turret: " + bullet.gameObject.name);
                 TakeDamage(bullet.damage); // Apply damage from the mine
                 //Destroy(bullet.gameObject); // Destroy the mine
-            }
-            else
-            {
-                Debug.LogWarning("Bullet turtret damage no work.");
             }
         }
     }

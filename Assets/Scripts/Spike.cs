@@ -15,7 +15,6 @@ public class Spike : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
-            Debug.Log("Player hit by spike");
         {
             playerStats = collision.GetComponent<PlayerStats>();
             if (playerStats != null)
