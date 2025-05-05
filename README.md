@@ -33,3 +33,15 @@ Once loaded into the level, use the finish line to Exit to the `Main Menu`
 ### - M_Level1 (Multiplayer)
 Once loaded into the level, press a button on either the controller or a keyboard
 Game ends after the player completed 2 Laps
+
+
+Background Music Credits
+Action Rock by MaxKoMusic | https://maxkomusic.com/
+Sport Racing Car | DRIVE by Alex-Productions | https://onsound.eu/
+Powerful Trap Beat | Strong by Alex-Productions | https://onsound.eu/
+Epic Cyberpunk | Glory by Alex-Productions | https://onsound.eu/
+80s Pulse Synthwave Dude | https://pixabay.com/music/synthwave-80s-pulse-synthwave-dude-212407/
+
+Ambience
+Cave Fire and Thunder Sound Effect by https://www.chosic.com/free-music/all/
+Cricket, Gun, Cave Sound Effect by freesound_community from Pixabay
