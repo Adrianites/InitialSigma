@@ -12,6 +12,7 @@ public class Gun : MonoBehaviour
     [SerializeField] private Transform firePoint;
     [Range(0.1f, 1f)]
     [SerializeField] private float fireRate = 0.5f;
+    public AudioSource shootSound;
 
     public void OnButton()
     {
@@ -28,6 +29,7 @@ public class Gun : MonoBehaviour
 
     public void PlayerShoot()
     {
+        shootSound.Play();
         Shoot();
 
         // if (fireTimer <= 0f)
