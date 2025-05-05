@@ -866,7 +866,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00010681152, y: -0.0000076293945}
+  m_AnchoredPosition: {x: 0.00012207031, y: 0}
   m_SizeDelta: {x: -210.2016, y: -20.0298}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3239836831723929401
@@ -1229,7 +1229,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8045235765960411967
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4179,7 +4179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.03137255, g: 0.38823533, b: 0.9960785, a: 1}
+  m_Color: {r: 0.99607843, g: 0.132805, b: 0.031372532, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6731,9 +6731,9 @@ RectTransform:
   - {fileID: 2089714116873409308}
   m_Father: {fileID: 4400533869132434124}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -307, y: 288}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 236, y: 281}
   m_SizeDelta: {x: 300, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &6248631607688186632
@@ -7509,7 +7509,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6916887822145182220}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 5.979642}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.1888545, y: 1.1888545, z: 1.1888545}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7518,10 +7518,10 @@ RectTransform:
   - {fileID: 8391440655348308955}
   m_Father: {fileID: 4400533869132434124}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 726.8, y: 468}
-  m_SizeDelta: {x: 260.1023, y: 27.9121}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 236, y: 89}
+  m_SizeDelta: {x: 260.1023, y: 27.91211}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5536225529175812474
 MonoBehaviour:
@@ -8301,6 +8301,7 @@ GameObject:
   - component: {fileID: 8391440655348308955}
   - component: {fileID: 163491942993088020}
   - component: {fileID: 434672203940431688}
+  - component: {fileID: 7844978486972202227}
   m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
@@ -8317,14 +8318,14 @@ RectTransform:
   m_GameObject: {fileID: 7553562975084325745}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.1917, y: 1.8, z: 1}
+  m_LocalScale: {x: 2.7083766, y: 4.09086, z: 2.2727}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 396479580595711468}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: -15.3, y: -0.3}
+  m_AnchoredPosition: {x: -15.299927, y: -0.30005}
   m_SizeDelta: {x: 35.856705, y: 22.8195}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &163491942993088020
@@ -8355,7 +8356,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 1129384187, guid: fcd1dc27351a43e4dbe3cd9c12dc4789, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8365,6 +8366,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &7844978486972202227
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7553562975084325745}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f13e2fab47748934c89e9d9bb77804ae, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7724008915933011250
 GameObject:
   m_ObjectHideFlags: 0
