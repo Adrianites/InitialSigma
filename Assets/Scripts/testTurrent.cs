@@ -20,7 +20,6 @@ public class testTurrent : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            Debug.Log("Player detected by turret.");
             player = collision.transform; 
             isPlayerInRange = true; 
         }
@@ -30,7 +29,6 @@ public class testTurrent : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            Debug.Log("Player exited turret range.");
             player = null; 
             isPlayerInRange = false; 
         }

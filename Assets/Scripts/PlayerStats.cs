@@ -12,6 +12,9 @@ public class PlayerStats : MonoBehaviour
 
     public UIManager uiManager;
     public HealthBar healthBar;
+
+    public AudioSource MineAudioSource;
+    public AudioSource SpikeAudioSource;
     Animator animator;
 
     void Awake()
@@ -60,6 +63,7 @@ public class PlayerStats : MonoBehaviour
 
         if (healthBar != null)
         {
+            Debug.Log("HealthBar is not null, updating health bar.");
             healthBar.SetHealth(currentHealth);
         }
         Debug.Log("Player current health: " + currentHealth);
@@ -80,7 +84,6 @@ public class PlayerStats : MonoBehaviour
             Die();
         }
     } */
-    
     public void MineTakeDamage(float damage)
     {
         Debug.Log("Player takes damage: " + damage);
@@ -143,7 +146,7 @@ public class PlayerStats : MonoBehaviour
                 AudioSource mineAudio = mine.GetComponent<AudioSource>();
                 if (mineAudio != null)
                 {
-                    mineAudio.Play(); // Play the sound
+                    MineAudioSource.Play(); // Play the sound
                 }
                 else
                 {
@@ -161,7 +164,33 @@ public class PlayerStats : MonoBehaviour
             {
                 Debug.Log("Player entered SpikeRange: " + spike.gameObject.name);
                 TakeDamage(spike.damage);
+
+                AudioSource spikeAudio = spike.GetComponent<AudioSource>();
+                if (spikeAudio != null)
+                {
+                    SpikeAudioSource.Play();
+                    Object.Destroy(spike.gameObject); // Play the sound
+                }
+                else
+                {
+                 Debug.LogWarning("AudioSource component not found on Mine object.");
+                }
                 Object.Destroy(spike.gameObject);
+            }
+        }
+
+        else if (collision.CompareTag("Player"))
+        {
+            Bullet bullet = collision.GetComponent<Bullet>();
+            if (bullet != null)
+            {
+                Debug.Log("Player hit by turret: " + bullet.gameObject.name);
+                TakeDamage(bullet.damage); // Apply damage from the mine
+                //Destroy(bullet.gameObject); // Destroy the mine
+            }
+            else
+            {
+                Debug.LogWarning("Bullet turtret damage no work.");
             }
         }
     }

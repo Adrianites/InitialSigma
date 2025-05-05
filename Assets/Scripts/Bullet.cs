@@ -41,12 +41,13 @@ public class Bullet : MonoBehaviour
         }
         else if (other.CompareTag("Player"))
         {
-           PlayerStats player = other.GetComponent<PlayerStats>();
-            if (player != null)
+            Debug .Log("Bullet hit player: " + other.gameObject.name);
+            PlayerStats playerStats = other.GetComponent<PlayerStats>();
+            if (playerStats != null)
             {
-                player.TakeDamage(damage); 
+                playerStats.TakeDamage(damage); 
             }
-            
+
             Destroy(gameObject);
         }
     }
