@@ -7,7 +7,7 @@ public class S_LevelSwitcher : MonoBehaviour
 {
     #region Variables
     public Scene scene;
-    public enum Scene{MainMenu, Scene1, Scene2, Scene3, Scene4}
+    public enum Scene{None, MainMenu, Scene1, Scene2, Scene3, Scene4}
     public Animator sceneAnimator;
     #endregion
 

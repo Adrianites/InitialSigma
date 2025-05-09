@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float health = 100f;  // The health of the enemy
+    public float health = 100f; 
 
-    // Method to apply damage to the enemy
     public void TakeDamage(float amount)
     {
         health -= amount;
@@ -17,9 +16,9 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    // Method to handle the enemy's death
+  
     private void Die()
     {
-        Destroy(gameObject);  // Destroys the enemy game object
+        Destroy(gameObject);  
     }
 }

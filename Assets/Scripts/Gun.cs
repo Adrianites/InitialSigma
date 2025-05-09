@@ -31,16 +31,6 @@ public class Gun : MonoBehaviour
     {
         shootSound.Play();
         Shoot();
-
-        // if (fireTimer <= 0f)
-        // {
-        //     Shoot();
-        //     fireTimer = fireRate;
-        // }
-        // else
-        // {
-        //     fireTimer -= Time.deltaTime;
-        // }
     }
 
     private void Shoot()
